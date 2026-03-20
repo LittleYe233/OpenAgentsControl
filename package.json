@@ -99,16 +99,16 @@
     "cli",
     "automation"
   ],
-  "author": "Darren Hinde",
+  "author": "LittleYe233",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/darrenhinde/OpenAgentsControl.git"
+    "url": "https://github.com/LittleYe233/OpenAgentsControl.git"
   },
   "bugs": {
-    "url": "https://github.com/darrenhinde/OpenAgentsControl/issues"
+    "url": "https://github.com/LittleYe233/OpenAgentsControl/issues"
   },
-  "homepage": "https://github.com/darrenhinde/OpenAgentsControl#readme",
+  "homepage": "https://github.com/LittleYe233/OpenAgentsControl#readme",
   "devDependencies": {
     "glob": "^13.0.0"
   }

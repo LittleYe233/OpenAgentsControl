@@ -154,7 +154,7 @@
 
 ## Reference
 
-**Issue**: https://github.com/darrenhinde/OpenAgentsControl/issues/141
+**Issue**: https://github.com/LittleYe233/OpenAgentsControl/issues/141
 **Branch**: `devalexanderdaza/issue141`
 
 **Related**:

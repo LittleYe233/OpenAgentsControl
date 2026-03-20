@@ -44,22 +44,28 @@ else
 fi
 
 # Configuration
-REPO_URL="https://github.com/darrenhinde/OpenAgentsControl"
+REPO_URL="https://github.com/LittleYe233/OpenAgentsControl"
 BRANCH="${OPENCODE_BRANCH:-main}"  # Allow override via environment variable
-RAW_URL="https://raw.githubusercontent.com/darrenhinde/OpenAgentsControl/${BRANCH}"
 
-# Registry URL - supports local fallback for development
-# Priority: 1) REGISTRY_URL env var, 2) Local registry.json, 3) Remote GitHub
-if [ -n "$REGISTRY_URL" ]; then
-    # Use explicitly set REGISTRY_URL (for testing)
-    :
-elif [ -f "./registry.json" ]; then
-    # Use local registry.json if it exists (for development)
-    REGISTRY_URL="file://$(pwd)/registry.json"
-else
-    # Default to remote GitHub registry
-    REGISTRY_URL="${RAW_URL}/registry.json"
-fi
+initialize_config() {
+    # RAW_URL - supports local fallback for development
+    if [ -n "$OPENCODE_RAW_URL" ]; then
+        RAW_URL="$OPENCODE_RAW_URL"
+    elif [ "$LOCAL_MODE" = true ]; then
+        # Use local directory only if explicitly requested
+        RAW_URL="file://$(pwd)"
+        print_info "Local mode enabled: fetching components from $(pwd)"
+    else
+        # Default to remote GitHub
+        RAW_URL="https://raw.githubusercontent.com/LittleYe233/OpenAgentsControl/${BRANCH}"
+    fi
+
+    # Registry URL - supports local fallback for development
+    # Priority: 1) REGISTRY_URL env var, 2) Derived from RAW_URL
+    if [ -z "$REGISTRY_URL" ]; then
+        REGISTRY_URL="${RAW_URL}/registry.json"
+    fi
+}
 
 INSTALL_DIR="${OPENCODE_INSTALL_DIR:-.opencode}"  # Allow override via environment variable
 TEMP_DIR="/tmp/opencode-installer-$$"
@@ -72,6 +78,7 @@ SELECTED_COMPONENTS=()
 INSTALL_MODE=""
 PROFILE=""
 NON_INTERACTIVE=false
+LOCAL_MODE=false
 CUSTOM_INSTALL_DIR=""  # Set via --install-dir argument
 
 #############################################################################
@@ -484,7 +491,7 @@ check_interactive_mode() {
         echo "For interactive mode, download the script first:"
         echo ""
         echo -e "${CYAN}# Download the script${NC}"
-        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgentsControl/main/install.sh -o install.sh"
+        echo "curl -fsSL https://raw.githubusercontent.com/LittleYe233/OpenAgentsControl/main/install.sh -o install.sh"
         echo ""
         echo -e "${CYAN}# Run interactively${NC}"
         echo "bash install.sh"
@@ -492,7 +499,7 @@ check_interactive_mode() {
         echo "Or use a profile directly:"
         echo ""
         echo -e "${CYAN}# Quick install with profile${NC}"
-        echo "curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgentsControl/main/install.sh | bash -s essential"
+        echo "curl -fsSL https://raw.githubusercontent.com/LittleYe233/OpenAgentsControl/main/install.sh | bash -s essential"
         echo ""
         echo "Available profiles: essential, developer, business, full, advanced"
         echo ""
@@ -647,6 +654,17 @@ show_profile_menu() {
     echo -e "     ${dev_desc}"
     echo -e "     Components: ${dev_count}\n"
     
+    # Architect profile
+    local arch_name
+    arch_name=$(jq_exec '.profiles.architect.name' "$TEMP_DIR/registry.json")
+    local arch_desc
+    arch_desc=$(jq_exec '.profiles.architect.description' "$TEMP_DIR/registry.json")
+    local arch_count
+    arch_count=$(jq_exec '.profiles.architect.components | length' "$TEMP_DIR/registry.json")
+    echo -e "  ${MAGENTA}3) ${arch_name}${NC}"
+    echo -e "     ${arch_desc}"
+    echo -e "     Components: ${arch_count}\n"
+    
     # Business profile
     local business_name
     business_name=$(jq_exec '.profiles.business.name' "$TEMP_DIR/registry.json")
@@ -654,7 +672,7 @@ show_profile_menu() {
     business_desc=$(jq_exec '.profiles.business.description' "$TEMP_DIR/registry.json")
     local business_count
     business_count=$(jq_exec '.profiles.business.components | length' "$TEMP_DIR/registry.json")
-    echo -e "  ${CYAN}3) ${business_name}${NC}"
+    echo -e "  ${CYAN}4) ${business_name}${NC}"
     echo -e "     ${business_desc}"
     echo -e "     Components: ${business_count}\n"
     
@@ -665,7 +683,7 @@ show_profile_menu() {
     full_desc=$(jq_exec '.profiles.full.description' "$TEMP_DIR/registry.json")
     local full_count
     full_count=$(jq_exec '.profiles.full.components | length' "$TEMP_DIR/registry.json")
-    echo -e "  ${MAGENTA}4) ${full_name}${NC}"
+    echo -e "  ${MAGENTA}5) ${full_name}${NC}"
     echo -e "     ${full_desc}"
     echo -e "     Components: ${full_count}\n"
     
@@ -676,21 +694,22 @@ show_profile_menu() {
     adv_desc=$(jq_exec '.profiles.advanced.description' "$TEMP_DIR/registry.json")
     local adv_count
     adv_count=$(jq_exec '.profiles.advanced.components | length' "$TEMP_DIR/registry.json")
-    echo -e "  ${YELLOW}5) ${adv_name}${NC}"
+    echo -e "  ${YELLOW}6) ${adv_name}${NC}"
     echo -e "     ${adv_desc}"
     echo -e "     Components: ${adv_count}\n"
     
-    echo "  6) Back to main menu"
+    echo "  7) Back to main menu"
     echo ""
-    read -r -p "Enter your choice [1-6]: " choice
+    read -r -p "Enter your choice [1-7]: " choice
     
     case $choice in
         1) PROFILE="essential" ;;
         2) PROFILE="developer" ;;
-        3) PROFILE="business" ;;
-        4) PROFILE="full" ;;
-        5) PROFILE="advanced" ;;
-        6) show_main_menu; return ;;
+        3) PROFILE="architect" ;;
+        4) PROFILE="business" ;;
+        5) PROFILE="full" ;;
+        6) PROFILE="advanced" ;;
+        7) show_main_menu; return ;;
         *) print_error "Invalid choice"; sleep 2; show_profile_menu; return ;;
     esac
     
@@ -1356,6 +1375,12 @@ main() {
                 NON_INTERACTIVE=true
                 shift
                 ;;
+            architect|--architect)
+                INSTALL_MODE="profile"
+                PROFILE="architect"
+                NON_INTERACTIVE=true
+                shift
+                ;;
             business|--business)
                 INSTALL_MODE="profile"
                 PROFILE="business"
@@ -1374,6 +1399,10 @@ main() {
                 NON_INTERACTIVE=true
                 shift
                 ;;
+            --local)
+                LOCAL_MODE=true
+                shift
+                ;;
             list|--list)
                 check_dependencies
                 fetch_registry
@@ -1387,11 +1416,14 @@ main() {
                 echo -e "${BOLD}Profiles:${NC}"
                 echo "  essential, --essential    Minimal setup with core agents"
                 echo "  developer, --developer    Code-focused development tools"
+                echo "  architect, --architect    Developer tools + System Builder"
                 echo "  business, --business      Content and business-focused tools"
                 echo "  full, --full              Everything except system-builder"
                 echo "  advanced, --advanced      Complete system with all components"
                 echo ""
                 echo -e "${BOLD}Options:${NC}"
+                echo "  --local                   Fetch components from local directory"
+                echo "                            (default if registry.json exists)"
                 echo "  --install-dir PATH        Custom installation directory"
                 echo "                            (default: .opencode)"
                 echo "  list, --list              List all available components"
@@ -1423,7 +1455,7 @@ main() {
                 echo "  $0 developer"
                 echo ""
                 echo -e "  ${CYAN}# Install from URL (non-interactive)${NC}"
-                echo "  curl -fsSL https://raw.githubusercontent.com/darrenhinde/OpenAgentsControl/main/install.sh | bash -s developer"
+                echo "  curl -fsSL https://raw.githubusercontent.com/LittleYe233/OpenAgentsControl/main/install.sh | bash -s developer"
                 echo ""
                 echo -e "${BOLD}Platform Support:${NC}"
                 echo "  ✓ Linux (bash 3.2+)"
@@ -1456,6 +1488,7 @@ main() {
     fi
     
     check_bash_version
+    initialize_config
     check_dependencies
     fetch_registry
     

@@ -20,7 +20,7 @@ export async function fetchRegistry(
 ): Promise<Registry> {
   const {
     source = 'github',
-    repository = 'darrenhinde/OpenAgentsControl',
+    repository = 'LittleYe233/OpenAgentsControl',
     branch = 'main',
     localPath,
   } = options

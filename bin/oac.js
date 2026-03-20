@@ -52,7 +52,7 @@ Examples:
   oac --help            Show detailed help
 
 For more information, visit:
-  https://github.com/darrenhinde/OpenAgentsControl
+  https://github.com/LittleYe233/OpenAgentsControl
 `);
   process.exit(0);
 }

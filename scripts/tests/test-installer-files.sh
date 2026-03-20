@@ -18,12 +18,20 @@ NC='\033[0m'
 
 # Configuration
 BRANCH="main"
-RAW_URL="https://raw.githubusercontent.com/darrenhinde/OpenAgentsControl/${BRANCH}"
 TEMP_DIR="/tmp/opencode-installer-test-$$"
 
 # Allow local testing (useful for CI/CD or when testing changes before pushing)
 USE_LOCAL=false
 LOCAL_REGISTRY="./registry.json"
+
+initialize_config() {
+    if [ "$USE_LOCAL" = true ]; then
+        RAW_URL="file://$(pwd)"
+        print_info "Local mode enabled: testing files from $(pwd)"
+    else
+        RAW_URL="https://raw.githubusercontent.com/LittleYe233/OpenAgentsControl/${BRANCH}"
+    fi
+}
 
 # Global variables
 VERBOSE=false
@@ -311,6 +319,8 @@ main() {
     
     # Create temp directory
     mkdir -p "$TEMP_DIR"
+    
+    initialize_config
     
     # Get registry (local or remote)
     if [ "$USE_LOCAL" = true ]; then
