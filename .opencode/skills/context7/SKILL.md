@@ -7,79 +7,58 @@ description: Retrieve up-to-date documentation for software libraries, framework
 
 ## Overview
 
-This skill enables retrieval of current documentation for software libraries and components by querying the Context7 API via curl. Use it instead of relying on potentially outdated training data.
+This skill enables retrieval of current documentation for software libraries and components by calling the Context7 MCP server tools. Use it instead of relying on potentially outdated training data.
+
+The Context7 MCP server must be configured in the `mcp` section of `~/.config/opencode/opencode.json`.
 
 ## Workflow
 
-### Step 1: Search for the Library
+### Step 1: Resolve Library ID
 
-To find the Context7 library ID, query the search endpoint:
+To find the Context7 library ID, use the `Context7_resolve-library-id` tool:
 
-```bash
-curl -s "https://context7.com/api/v2/libs/search?libraryName=LIBRARY_NAME&query=TOPIC" | jq '.results[0]'
-```
-
+**Tool**: `Context7_resolve-library-id`
 **Parameters:**
 - `libraryName` (required): The library name to search for (e.g., "react", "nextjs", "fastapi", "axios")
 - `query` (required): A description of the topic for relevance ranking
 
 **Response fields:**
-- `id`: Library identifier for the context endpoint (e.g., `/websites/react_dev_reference`)
-- `title`: Human-readable library name
+- `libraryId`: Library identifier for the context endpoint (e.g., `/websites/react_dev_reference`)
+- `name`: Human-readable library name
 - `description`: Brief description of the library
-- `totalSnippets`: Number of documentation snippets available
+- `codeSnippets`: Number of documentation snippets available
 
-### Step 2: Fetch Documentation
+### Step 2: Query Documentation
 
-To retrieve documentation, use the library ID from step 1:
+To retrieve documentation, use the library ID from step 1 with the `Context7_query-docs` tool:
 
-```bash
-curl -s "https://context7.com/api/v2/context?libraryId=LIBRARY_ID&query=TOPIC&type=txt"
-```
-
+**Tool**: `Context7_query-docs`
 **Parameters:**
 - `libraryId` (required): The library ID from search results
 - `query` (required): The specific topic to retrieve documentation for
-- `type` (optional): Response format - `json` (default) or `txt` (plain text, more readable)
 
 ## Examples
 
 ### React hooks documentation
 
-```bash
-# Find React library ID
-curl -s "https://context7.com/api/v2/libs/search?libraryName=react&query=hooks" | jq '.results[0].id'
-# Returns: "/websites/react_dev_reference"
+1. **Resolve Library ID**:
+   Call `Context7_resolve-library-id(libraryName="react", query="hooks")`
+   Returns: `libraryId: "/websites/react_dev_reference"`
 
-# Fetch useState documentation
-curl -s "https://context7.com/api/v2/context?libraryId=/websites/react_dev_reference&query=useState&type=txt"
-```
+2. **Query Documentation**:
+   Call `Context7_query-docs(libraryId="/websites/react_dev_reference", query="useState")`
 
 ### Next.js routing documentation
 
-```bash
-# Find Next.js library ID
-curl -s "https://context7.com/api/v2/libs/search?libraryName=nextjs&query=routing" | jq '.results[0].id'
+1. **Resolve Library ID**:
+   Call `Context7_resolve-library-id(libraryName="nextjs", query="routing")`
+   Returns: `libraryId: "/vercel/next.js"`
 
-# Fetch app router documentation
-curl -s "https://context7.com/api/v2/context?libraryId=/vercel/next.js&query=app+router&type=txt"
-```
-
-### FastAPI dependency injection
-
-```bash
-# Find FastAPI library ID
-curl -s "https://context7.com/api/v2/libs/search?libraryName=fastapi&query=dependencies" | jq '.results[0].id'
-
-# Fetch dependency injection documentation
-curl -s "https://context7.com/api/v2/context?libraryId=/fastapi/fastapi&query=dependency+injection&type=txt"
-```
+2. **Query Documentation**:
+   Call `Context7_query-docs(libraryId="/vercel/next.js", query="app router")`
 
 ## Tips
 
-- Use `type=txt` for more readable output
-- Use `jq` to filter and format JSON responses
-- Be specific with the `query` parameter to improve relevance ranking
-- If the first search result is not correct, check additional results in the array
-- URL-encode query parameters containing spaces (use `+` or `%20`)
-- No API key is required for basic usage (rate-limited)
+- Be specific with the `query` parameter to improve relevance ranking.
+- If the first search result is not correct, try refining the `libraryName` or `query`.
+- The MCP server handles all API communication and authentication.
