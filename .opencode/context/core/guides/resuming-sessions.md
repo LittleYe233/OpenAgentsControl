@@ -36,6 +36,23 @@
 
 ## Quick Resume Steps
 
+### 0. Use the Resume Command (Recommended)
+
+The fastest way to resume is using the built-in command:
+
+```bash
+/resume-progress
+```
+
+This command automatically:
+1. Checks for unsaved work in the current session.
+2. Verifies the development solution.
+3. Loads local and global contexts.
+4. Analyzes `progress.md` to recover the last known state.
+5. Displays next steps and awaits confirmation.
+
+---
+
 ### 1. Find Your Session (30 seconds)
 
 ```bash

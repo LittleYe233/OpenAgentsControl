@@ -85,6 +85,15 @@ package.json                             # Node dependencies
 ## Common Commands (Top 10)
 
 ```bash
+# Initialize development solution from plan
+/init-from-plan
+
+# Save current session progress
+/save-progress
+
+# Resume from previous progress
+/resume-progress
+
 # Add new agent (auto-detect)
 ./scripts/registry/auto-detect-components.sh --auto-add
 

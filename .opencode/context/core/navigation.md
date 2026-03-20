@@ -71,7 +71,9 @@ core/
 | **Review code** | `workflows/code-review.md` |
 | **Delegate task** | `workflows/task-delegation-basics.md` |
 | **Break down feature** | `workflows/feature-breakdown.md` |
-| **Resume session** | `guides/resuming-sessions.md` |
+| **Init from plan** | `/init-from-plan` |
+| **Save progress** | `/save-progress` |
+| **Resume session** | `guides/resuming-sessions.md` or `/resume-progress` |
 | **Manage tasks** | `task-management/navigation.md` |
 | **Task CLI commands** | `task-management/lookup/task-commands.md` |
 | **Context system** | `context-system.md` |

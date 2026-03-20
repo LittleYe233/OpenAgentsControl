@@ -91,11 +91,13 @@
 ### Manual Cleanup (Preferred)
 **Ask user confirmation before cleanup**
 
-After task completion:
-1. Ask: "Should I clean up temporary session files at `.tmp/sessions/{session-id}/`?"
-2. Wait for user confirmation
-3. Only delete files tracked in current session's manifest
-4. Remove entire session folder: `.tmp/sessions/{session-id}/`
+Before cleanup, ALWAYS ensure progress is saved:
+1. Run `/save-progress` to persist current state to `.opencode/context/progress.md`.
+2. After task completion:
+3. Ask: "Should I clean up temporary session files at `.tmp/sessions/{session-id}/`?"
+4. Wait for user confirmation
+5. Only delete files tracked in current session's manifest
+6. Remove entire session folder: `.tmp/sessions/{session-id}/`
 
 ### Safety Rules
 - **NEVER** delete files outside current session

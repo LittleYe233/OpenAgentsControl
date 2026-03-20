@@ -651,6 +651,45 @@
           "refactoring"
         ],
         "category": "standard"
+      },
+      {
+        "id": "init-from-plan",
+        "name": "Init From Plan",
+        "type": "command",
+        "path": ".opencode/command/init-from-plan.md",
+        "description": "Generate a development solution from an initial plan.",
+        "tags": [
+          "planning",
+          "initialization",
+          "solution"
+        ],
+        "category": "standard"
+      },
+      {
+        "id": "resume-progress",
+        "name": "Resume Progress",
+        "type": "command",
+        "path": ".opencode/command/resume-progress.md",
+        "description": "Resume from previous development states via existing context files",
+        "tags": [
+          "resume",
+          "progress",
+          "context"
+        ],
+        "category": "standard"
+      },
+      {
+        "id": "save-progress",
+        "name": "Save Progress",
+        "type": "command",
+        "path": ".opencode/command/save-progress.md",
+        "description": "Save current development progress to local context folder",
+        "tags": [
+          "save",
+          "progress",
+          "context"
+        ],
+        "category": "standard"
       }
     ],
     "tools": [
@@ -3161,6 +3200,9 @@
         "command:optimize",
         "command:validate-repo",
         "command:analyze-patterns",
+        "command:init-from-plan",
+        "command:resume-progress",
+        "command:save-progress",
         "tool:env",
         "context:essential-patterns",
         "context:project-context",
@@ -3244,6 +3286,9 @@
         "command:worktrees",
         "command:validate-repo",
         "command:analyze-patterns",
+        "command:init-from-plan",
+        "command:resume-progress",
+        "command:save-progress",
         "tool:env",
         "tool:gemini",
         "plugin:notify",
@@ -3308,6 +3353,9 @@
         "command:build-context-system",
         "command:validate-repo",
         "command:analyze-patterns",
+        "command:init-from-plan",
+        "command:resume-progress",
+        "command:save-progress",
         "tool:env",
         "tool:gemini",
         "plugin:notify",

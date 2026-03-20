@@ -19,6 +19,9 @@
 | `external-libraries-faq.md` | Troubleshooting | ⭐⭐⭐ | Errors/questions |
 | `feature-breakdown.md` | Breaking down features | ⭐⭐⭐⭐ | 4+ files, complex tasks |
 | `session-management.md` | Managing sessions | ⭐⭐⭐ | Session cleanup |
+| `init-from-plan` | Initialize from plan | ⭐⭐⭐⭐⭐ | Starting new project |
+| `save-progress` | Save session progress | ⭐⭐⭐⭐⭐ | Ending session |
+| `resume-progress` | Resume from progress | ⭐⭐⭐⭐⭐ | Starting session |
 | `design-iteration-overview.md` | Design workflow overview | ⭐⭐⭐⭐ | Starting design work |
 | `design-iteration-plan-file.md` | Design plan template | ⭐⭐⭐⭐ | Creating design plan |
 | `design-iteration-stage-layout.md` | Stage 1: Layout | ⭐⭐⭐ | Layout design |

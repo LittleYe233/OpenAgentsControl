@@ -434,6 +434,9 @@ Data:     development/data/nosql-patterns/mongodb.md
 ## Quick Commands
 
 ```bash
+/init-from-plan               # Generate technical solution from initial_plan.md
+/save-progress                # Persist current session state to progress.md
+/resume-progress              # Recover state from solution and progress files
 /context                      # Quick scan, suggest actions
 /context harvest              # Clean up summaries → permanent context
 /context extract {source}     # From docs/code/URLs

@@ -1,6 +1,7 @@
 ---
 name: OpenCoder
 description: "Orchestration agent for complex coding, architecture, and multi-file refactoring"
+model: google/gemini-3.1-pro-preview
 mode: primary
 temperature: 0.1
 permission:

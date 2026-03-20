@@ -26,6 +26,9 @@
 | Know the context | `decisions-log.md` | Why decisions were made |
 | Current state | `living-notes.md` | Active issues and open questions |
 | All of the above | Read all files in order | Full project intelligence |
+| **Start from plan** | `initial_plan.md` | Use `/init-from-plan` to generate solution |
+| **Dev solution** | `development_solution.md` | Technical roadmap generated from plan |
+| **Progress** | `progress.md` | Current state tracked via `/save-progress` |
 
 ## Usage
 

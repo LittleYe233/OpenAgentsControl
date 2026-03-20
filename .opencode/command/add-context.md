@@ -1,6 +1,7 @@
 ---
 description: Interactive wizard to add project patterns using Project Intelligence standard
 tags: [context, onboarding, project-intelligence, wizard]
+model: zai-coding-plan/glm-4.7
 dependencies:
   - subagent:context-organizer
   - context:core/context-system/standards/mvi.md

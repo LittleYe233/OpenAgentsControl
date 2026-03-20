@@ -39,6 +39,31 @@
 
 ---
 
+## Development Workflow Commands
+
+### Initialize From Plan
+
+```bash
+# Generate development solution from initial_plan.md
+/init-from-plan
+```
+
+### Save Progress
+
+```bash
+# Save current session state to progress.md
+/save-progress
+```
+
+### Resume Progress
+
+```bash
+# Recover state from development_solution.md and progress.md
+/resume-progress
+```
+
+---
+
 ## Testing Commands
 
 ### Run Tests

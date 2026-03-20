@@ -1,5 +1,6 @@
 ---
 description: Analyze and optimize code for performance, security, and potential issues
+model: google/gemini-3.1-pro-preview
 ---
 
 # Code Optimization Analysis

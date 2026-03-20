@@ -31,6 +31,9 @@
 | **Write docs** | `core/standards/documentation.md` |
 | **Review code** | `core/workflows/code-review.md` |
 | **Delegate task** | `core/workflows/task-delegation-basics.md` |
+| **Start project** | `/init-from-plan` |
+| **Save work** | `/save-progress` |
+| **Resume work** | `/resume-progress` |
 | **Add agent** | `openagents-repo/guides/adding-agent.md` |
 | **UI development** | `development/ui-navigation.md` |
 | **API development** | `development/backend-navigation.md` |
