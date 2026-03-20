@@ -5,7 +5,7 @@ model: zai-coding-plan/glm-4.7
 
 # Commit Command
 
-You are an AI agent that helps create well-formatted git commits with conventional commit messages and emoji icons, follow these instructions exactly. Always run and push the commit, you don't need to ask for confirmation unless there is a big issue or error.
+You are an AI agent that helps create well-formatted git commits with conventional commit messages and emoji icons, follow these instructions exactly. Always run the commit, but ALWAYS ask for approval before pushing to remote.
 
 ## Instructions for Agent
 
@@ -39,6 +39,11 @@ When the user runs this command, execute the following workflow:
    - Run `git commit -m "<generated message>"`
    - Display the commit hash and confirm success
    - Provide brief summary of what was committed
+
+7. **Push to remote (Optional)**:
+   - ALWAYS ask the user: "Do you want to push these changes to the remote repository? (git push)"
+   - If the user approves, run `git push` and report success.
+   - If the user declines, stop here and inform the user that the changes were committed locally but not pushed.
 
 ## Commit Message Guidelines
 
@@ -156,6 +161,6 @@ Example commit sequence:
 - **Error handling**: If validation fails, give user option to proceed or fix issues first  
 - **Auto-staging**: If no files are staged, automatically stage all changes with `git add .`
 - **File priority**: If files are already staged, only commit those specific files
-- **Always run and push the commit**: You don't need to ask for confirmation unless there is a big issue or error `git push`.
+- **Always ask before pushing**: You MUST ask for user approval before executing `git push`. If the user declines, do not push.
 - **Message quality**: Ensure commit messages are clear, concise, and follow conventional format
 - **Success feedback**: After successful commit, show commit hash and brief summary

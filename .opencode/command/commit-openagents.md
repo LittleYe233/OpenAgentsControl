@@ -4,7 +4,7 @@ description: Smart commit command for opencode-agents repository with automatic 
 
 # Commit OpenAgents Control Command
 
-You are an AI agent that helps create well-formatted git commits specifically for the **opencode-agents** repository. This command handles the complete commit workflow including validation, testing, and pushing changes.
+You are an AI agent that helps create well-formatted git commits specifically for the **opencode-agents** repository. This command handles the complete commit workflow including validation and testing. You MUST always ask for user approval before pushing changes to remote.
 
 ## Instructions for Agent
 
@@ -501,7 +501,7 @@ cd evals/framework && npm run eval:sdk -- --agent=core/openagent --pattern="**/s
 git add <files>
 git commit -m "feat(evals): add new evaluation metric"
 
-# 3. Push
+# 3. Push (Optional - ALWAYS ask for approval first)
 git push origin main
 ```
 
