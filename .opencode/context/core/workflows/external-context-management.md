@@ -3,7 +3,7 @@
 
 ## Overview
 
-External context is live documentation fetched from external libraries and frameworks (via Context7 API or official docs). Instead of re-fetching on every task, we **persist external context** to `.tmp/external-context/` so main agents can pass it to subagents.
+External context is live documentation fetched from external libraries and frameworks (via Context7 MCP tools or official docs). Instead of re-fetching on every task, we **persist external context** to `.tmp/external-context/` so main agents can pass it to subagents.
 
 **Key Principle**: ExternalScout fetches once → persists to disk → main agents reference → subagents read (no re-fetching)
 
@@ -61,7 +61,7 @@ External context is live documentation fetched from external libraries and frame
         "typescript-config.md"
       ],
       "last_updated": "2026-01-28T14:30:22Z",
-      "source": "Context7 API",
+      "source": "Context7 MCP",
       "official_docs": "https://orm.drizzle.team"
     },
     "better-auth": {
@@ -71,7 +71,7 @@ External context is live documentation fetched from external libraries and frame
         "session-management.md"
       ],
       "last_updated": "2026-01-28T14:25:10Z",
-      "source": "Context7 API",
+      "source": "Context7 MCP",
       "official_docs": "https://better-auth.com"
     },
     "next.js": {
@@ -81,7 +81,7 @@ External context is live documentation fetched from external libraries and frame
         "middleware.md"
       ],
       "last_updated": "2026-01-28T14:20:05Z",
-      "source": "Context7 API",
+      "source": "Context7 MCP",
       "official_docs": "https://nextjs.org"
     }
   }
@@ -97,7 +97,7 @@ Each external context file has a metadata header followed by the documentation c
 **Template**:
 ```markdown
 ---
-source: Context7 API
+source: Context7 MCP
 library: Drizzle ORM
 package: drizzle-orm
 topic: modular-schemas
@@ -107,7 +107,7 @@ official_docs: https://orm.drizzle.team/docs/goodies#multi-file-schemas
 
 # Modular Schemas in Drizzle ORM
 
-[Filtered documentation content from Context7 API]
+[Filtered documentation content from Context7 MCP]
 
 ## Key Concepts
 
@@ -119,7 +119,7 @@ official_docs: https://orm.drizzle.team/docs/goodies#multi-file-schemas
 
 ---
 
-**Source**: Context7 API (live, version-specific)
+**Source**: Context7 MCP (live, version-specific)
 **Official Docs**: https://orm.drizzle.team/docs/goodies#multi-file-schemas
 **Fetched**: 2026-01-28T14:30:22Z
 ```
@@ -145,7 +145,7 @@ ExternalScout
   ↓
   1. Detects libraries: Drizzle, Better Auth, Next.js
   ↓
-  2. Fetches from Context7 API (primary) or official docs (fallback)
+  2. Fetches from Context7 MCP tools (primary) or official docs (fallback)
   ↓
   3. Filters to relevant sections
   ↓
@@ -403,4 +403,4 @@ After deleting external context files, update `.manifest.json`:
 - **ExternalScout**: `.opencode/agent/subagents/core/externalscout.md` — Fetches and persists external docs
 - **Task Delegation**: `.opencode/context/core/workflows/task-delegation-basics.md` — How to reference external context in sessions
 - **Session Management**: `.opencode/context/core/workflows/session-management.md` — Session lifecycle
-- **Library Registry**: `.opencode/skills/context7/library-registry.md` — Supported libraries and query patterns
+- **Library Registry**: `.opencode/context/core/standards/external-library-registry.md` — Supported libraries and query patterns

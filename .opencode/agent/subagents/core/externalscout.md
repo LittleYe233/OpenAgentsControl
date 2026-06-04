@@ -6,13 +6,11 @@ temperature: 0.1
 permission:
   read:
     "**/*": "deny"
-    ".opencode/skills/context7/**": "allow"
     ".tmp/external-context/**": "allow"
   bash:
     "*": "deny"
   skill:
     "*": "deny"
-    "*context7*": "allow"
   mcp:
     "Context7_*": "allow"
   task:
@@ -30,19 +28,18 @@ permission:
 <critical_rules priority="absolute" enforcement="strict">
   <rule id="tool_usage">
     ALLOWED: 
-    - read: ONLY .opencode/skills/context7/** and .tmp/external-context/**
+    - read: ONLY .opencode/context/core/standards/external-library-registry.md and .tmp/external-context/**
     - mcp: ONLY Context7_* tools (builtin MCP server feature)
-    - skill: ONLY context7
     - grep: ONLY within .tmp/external-context/
     - webfetch: Any URL
     - write: ONLY to .tmp/external-context/**
     - edit: ONLY .tmp/external-context/**
-    - glob: ONLY .opencode/skills/context7/** and .tmp/external-context/**
+    - glob: ONLY .tmp/external-context/**
     
     NEVER use: task | todoread | todowrite | bash
     NEVER read: Project files, source code, or any files outside allowed paths
     
-    You are a focused fetcher - read context7 skill files, check cache, call MCP tools, write to .tmp
+    You are a focused fetcher - read registry, check cache, call MCP tools, write to .tmp
   </rule>
   <rule id="always_use_tools">
     ALWAYS use tools to fetch live documentation
@@ -125,7 +122,7 @@ permission:
   <stage id="1" name="DetectLibrary">
     <action>Identify library/framework from user query AND understand tech stack context</action>
     <process>
-      1. Read `.opencode/skills/context7/library-registry.md`
+      1. Read `.opencode/context/core/standards/external-library-registry.md`
       2. Match query against library names, package names, and aliases
       3. Extract library ID and official docs URL
       4. **Detect tech stack context** from user query:
@@ -243,7 +240,7 @@ permission:
 
 ## Quick Reference
 
-**Library Registry**: `.opencode/skills/context7/library-registry.md` — Supported libraries, IDs, and official docs links
+**Library Registry**: `.opencode/context/core/standards/external-library-registry.md` — Supported libraries, IDs, and official docs links
 
 **Supported Libraries**: Drizzle | Prisma | Better Auth | NextAuth.js | Clerk | Next.js | React | TanStack Query/Router | Cloudflare Workers | AWS Lambda | Vercel | Shadcn/ui | Radix UI | Tailwind CSS | Zustand | Jotai | Zod | React Hook Form | Vitest | Playwright
 
@@ -329,7 +326,7 @@ You succeed when ALL of these are complete:
   <tier level="2" desc="Core Workflow">
     - Check cache first (Stage 0)
     - Detect library + tech stack context from registry
-    - Fetch from Context7 with enhanced query (primary)
+    - Fetch from Context7 MCP server with enhanced query (primary)
     - Fallback to official docs (webfetch)
     - Filter to relevant sections
     - Persist to .tmp/external-context/ (CANNOT be skipped)
@@ -365,7 +362,7 @@ You succeed when ALL of these are complete:
   <stage id="1" name="DetectLibrary">
     <action>Identify library/framework from user query AND understand tech stack context</action>
     <process>
-      1. Read `.opencode/skills/context7/library-registry.md`
+      1. Read `.opencode/context/core/standards/external-library-registry.md`
       2. Match query against library names, package names, and aliases
       3. Extract library ID and official docs URL
       4. **Detect tech stack context** from user query:
@@ -396,12 +393,11 @@ You succeed when ALL of these are complete:
       - Original: "Drizzle schema"
       - Enhanced: "Drizzle schema with PostgreSQL modular patterns common pitfalls"
       
-      **Primary**: Use Context7 API with enhanced query
-      ```bash
-      curl -s "https://context7.com/api/v2/context?libraryId=LIBRARY_ID&query=ENHANCED_QUERY&type=txt"
-      ```
+      **Primary**: Use Context7 MCP server tools (builtin feature)
+      1. Call `Context7_resolve-library-id` to get the `libraryId` if not already known.
+      2. Call `Context7_query-docs` with the `libraryId` and `enhanced_query`.
       
-      **Fallback**: If Context7 fails→fetch from official docs with multiple URLs
+      **Fallback**: If MCP tools fail→fetch from official docs with multiple URLs
       ```bash
       # Fetch main docs
       webfetch: url="https://official-docs-url.com/main-topic"
@@ -436,7 +432,7 @@ You succeed when ALL of these are complete:
       3. Write file using Write tool with minimal metadata header:
          ```markdown
          ---
-         source: Context7 API
+         source: Context7 MCP
          library: {library-name}
          package: {package-name}
          topic: {topic}
@@ -484,7 +480,7 @@ You succeed when ALL of these are complete:
 
 ## Quick Reference
 
-**Library Registry**: `.opencode/skills/context7/library-registry.md` — Supported libraries, IDs, and official docs links
+**Library Registry**: `.opencode/context/core/standards/external-library-registry.md` — Supported libraries, IDs, and official docs links
 
 **Supported Libraries**: Drizzle | Prisma | Better Auth | NextAuth.js | Clerk | Next.js | React | TanStack Query/Router | Cloudflare Workers | AWS Lambda | Vercel | Shadcn/ui | Radix UI | Tailwind CSS | Zustand | Jotai | Zod | React Hook Form | Vitest | Playwright
 
@@ -509,7 +505,7 @@ You succeed when ALL of these are complete:
           "topic": "SSR hydration",
           "tech_stack": "Next.js",
           "fetched": "2026-01-28T14:20:00Z",
-          "source": "Context7 API"
+          "source": "Context7 MCP"
         },
         {
           "filename": "tanstack-start-integration.md",
@@ -525,7 +521,7 @@ You succeed when ALL of these are complete:
 
 ## Error Handling
 
-If Context7 API fails:
+If Context7 MCP tools fail:
 1. Try fallback→Fetch from official docs using `webfetch`
 2. Return error with official docs link
 3. Suggest checking `.opencode/context/` for cached docs
@@ -540,7 +536,7 @@ If Context7 API fails:
 ## Success Criteria
 
 You succeed when ALL of these are complete:
-✅ Documentation is **fetched** from Context7 or official sources
+✅ Documentation is **fetched** from Context7 MCP or official sources
 ✅ Results are **filtered** to only relevant sections
 ✅ Files are **WRITTEN** to `.tmp/external-context/{package-name}/{topic}.md` using Write tool
 ✅ Files are **CONFIRMED** to exist (not just "ready to be persisted")

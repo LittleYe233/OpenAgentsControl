@@ -62,7 +62,7 @@ task(subagent_type="ExternalScout", ...)
 ## What if ExternalScout doesn't have the library?
 
 ExternalScout has two sources:
-1. **Context7 API** (primary): 50+ popular libraries
+1. **Context7 MCP tools** (primary): 50+ popular libraries
 2. **Official docs** (fallback): Any library with public docs
 
 If library not in Context7: Auto-fallback to official docs via webfetch.
@@ -124,7 +124,7 @@ task(
 | Aspect | ContextScout | ExternalScout |
 |--------|--------------|---------------|
 | **Searches** | Internal project files | External documentation |
-| **Location** | `.opencode/context/` | Internet (Context7, docs) |
+| **Location** | `.opencode/context/` | Internet (Context7 MCP, docs) |
 | **Returns** | Project standards | Library APIs |
 | **Use for** | "How we do things here" | "How this library works" |
 | **Speed** | Fast (local) | Slower (network) |
@@ -150,7 +150,7 @@ Before implementing with external libraries:
 
 ## Supported Libraries
 
-**See**: `.opencode/skills/context7/library-registry.md`
+**See**: `.opencode/context/core/standards/external-library-registry.md`
 
 **Categories:** Database/ORM | Auth | Frontend | Infrastructure | UI | State | Validation | Testing
 

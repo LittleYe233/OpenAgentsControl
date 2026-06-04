@@ -39,7 +39,7 @@ Main Agent (OpenAgent, etc.)
   3. Call ContextScout for internal context
   ↓
   4. Call ExternalScout for external docs
-     - ExternalScout fetches from Context7 API
+     - ExternalScout fetches from Context7 MCP tools
      - ExternalScout persists to .tmp/external-context/
      - ExternalScout returns file paths
   ↓
@@ -398,7 +398,7 @@ CoderAgent reads subtask JSON and:
 ### ExternalScout Flow
 
 1. **Detect**: Drizzle, Better Auth, Next.js
-2. **Fetch**: Get docs from Context7 API
+2. **Fetch**: Get docs from Context7 MCP tools
 3. **Filter**: Extract relevant sections
 4. **Persist**: Write to `.tmp/external-context/{package}/{topic}.md`
 5. **Update**: Add to `.manifest.json`
