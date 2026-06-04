@@ -28,11 +28,30 @@ When the user runs this command, execute the following workflow:
    - Run `git diff --cached` to see what will be committed
    - Analyze the diff to determine the primary change type (feat, fix, docs, etc.)
    - Identify the main scope and purpose of the changes
+   - Use a `<commit_analysis>` block to think through the changes before generating the message:
+     <commit_analysis>
+     - List all files that have been changed or added
+     - Summarize the nature of changes (new feature, bug fix, refactor, etc.)
+     - Identify the primary scope and purpose of the changes
+     - Assess impact on the overall project
+     - Draft a comprehensive commit message focusing on "why" in the body paragraphs
+     - Ensure message follows conventional commit format with a detailed body and a list of changes
+     </commit_analysis>
    
 5. **Generate commit message**:
    - Choose appropriate emoji and type from the reference below
-   - Create message following format: `<emoji> <type>: <description>`
-   - Keep description concise, clear, and in imperative mood
+   - Create message following format:
+     ```
+     <emoji> <type>: <description>
+     
+     <commit message body, paragraph 1>
+     
+     <commit message body, paragraph 2>
+     ...
+     ```
+   - Keep the header description concise, clear, and in imperative mood
+   - In the message body, first use one or more paragraphs to explain WHY there should be such modification (e.g., what the issue is and how to reproduce in a bugfix commit, why it should be added in a feature addition commit).
+   - Then start a new paragraph with a list of brief adds/removes/changes. Each item must use only one simple sentence to describe the full diff.
    - Show the proposed message to user for confirmation
    
 6. **Execute the commit**:
@@ -52,6 +71,9 @@ When generating commit messages, follow these rules:
 - **Atomic commits**: Each commit should contain related changes that serve a single purpose
 - **Imperative mood**: Write as commands (e.g., "add feature" not "added feature")
 - **Concise first line**: Keep under 72 characters
+- **Message Body**: 
+  - First explain the "why": what the issue is and how to reproduce it (for bugfixes), or why the feature is needed (for features). Use one or more paragraphs.
+  - Then provide a list of brief adds/removes/changes. Each item should be a single simple sentence describing the full diff.
 - **Conventional format**: Use `<emoji> <type>: <description>` where type is one of:
   - `feat`: A new feature
   - `fix`: A bug fix
@@ -131,22 +153,25 @@ When generating commit messages, follow these rules:
 ## Reference: Good Commit Examples
 
 Use these as examples when generating commit messages:
-- ✨ feat: add user authentication system
-- 🐛 fix: resolve memory leak in rendering process
-- 📝 docs: update API documentation with new endpoints
-- ♻️ refactor: simplify error handling logic in parser
-- 🚨 fix: resolve linter warnings in component files
-- 🧑‍💻 chore: improve developer tooling setup process
-- 👔 feat: implement business logic for transaction validation
-- 🩹 fix: address minor styling inconsistency in header
-- 🚑️ fix: patch critical security vulnerability in auth flow
-- 🎨 style: reorganize component structure for better readability
-- 🔥 fix: remove deprecated legacy code
-- 🦺 feat: add input validation for user registration form
-- 💚 fix: resolve failing CI pipeline tests
-- 📈 feat: implement analytics tracking for user engagement
-- 🔒️ fix: strengthen authentication password requirements
-- ♿️ feat: improve form accessibility for screen readers
+
+```
+✨ feat: add user authentication system
+
+Currently, the application lacks a way to identify users and restrict access to sensitive features. We need an authentication system to secure user data and provide personalized experiences.
+
+- Add JWT-based authentication middleware.
+- Create login and registration API endpoints.
+- Update database schema to include user credentials.
+```
+
+```
+🐛 fix: resolve memory leak in rendering process
+
+When navigating between complex views rapidly, the application memory usage grows unbounded. This is caused by event listeners not being properly cleaned up when components unmount, which can be reproduced by toggling the dashboard view 50 times.
+
+- Remove dangling event listeners in the cleanup phase of the dashboard component.
+- Add a utility function to manage global event subscriptions.
+```
 
 Example commit sequence:
 - ✨ feat: add user authentication system
