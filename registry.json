@@ -368,12 +368,10 @@
           "external-docs",
           "libraries",
           "frameworks",
-          "context7",
           "subagent",
           "optimized"
         ],
         "dependencies": [
-          "skill:context7",
           "context:context-system"
         ],
         "category": "core"
@@ -779,27 +777,6 @@
           ".opencode/skills/smart-router-skill/scripts/sherlock-workflow.sh",
           ".opencode/skills/smart-router-skill/scripts/stark-workflow.sh",
           ".opencode/skills/smart-router-skill/scripts/yoda-workflow.sh"
-        ]
-      },
-      {
-        "id": "context7",
-        "name": "Context7",
-        "type": "skill",
-        "path": ".opencode/skills/context7/SKILL.md",
-        "description": "Fetch live, version-specific documentation for external libraries and frameworks via Context7 API",
-        "tags": [
-          "documentation",
-          "external",
-          "libraries",
-          "api"
-        ],
-        "dependencies": [],
-        "category": "essential",
-        "files": [
-          ".opencode/skills/context7/SKILL.md",
-          ".opencode/skills/context7/README.md",
-          ".opencode/skills/context7/library-registry.md",
-          ".opencode/skills/context7/navigation.md"
         ]
       },
       {
