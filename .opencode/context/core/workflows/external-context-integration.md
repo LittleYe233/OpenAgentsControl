@@ -197,8 +197,8 @@ Status: in_progress
 Set up Drizzle ORM with Better Auth in a Next.js application
 
 ## Context Files (Standards to Follow)
-- .opencode/context/core/standards/code-quality.md
-- .opencode/context/core/standards/test-coverage.md
+- @.opencode/context/core/standards/code-quality.md
+- @.opencode/context/core/standards/test-coverage.md
 
 ## Reference Files (Source Material)
 - package.json
@@ -282,8 +282,8 @@ TaskManager creates subtask JSONs like:
   "title": "Set up Drizzle schema with modular organization",
   "description": "Create modular Drizzle schema following best practices",
   "context_files": [
-    ".opencode/context/core/standards/code-quality.md",
-    ".opencode/context/core/standards/test-coverage.md"
+    "@.opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/test-coverage.md"
   ],
   "reference_files": [
     "package.json",
@@ -455,7 +455,7 @@ CoderAgent reads subtask JSON and:
 
 ## References
 
-- **ExternalScout**: `.opencode/agent/subagents/core/externalscout.md`
-- **External Context Management**: `.opencode/context/core/workflows/external-context-management.md`
-- **Task Delegation**: `.opencode/context/core/workflows/task-delegation-basics.md`
+- **ExternalScout**: `@.opencode/agent/subagents/core/externalscout.md`
+- **External Context Management**: `@.opencode/context/core/workflows/external-context-management.md`
+- **Task Delegation**: `@.opencode/context/core/workflows/task-delegation-basics.md`
 - **Management Script**: `scripts/external-context/manage-external-context.sh`

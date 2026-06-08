@@ -95,17 +95,17 @@ evals/agents/{category}/        # Tests by category
 ### Example: Core Agents + Development Subagents
 
 ```
-.opencode/agent/core/
+@.opencode/agent/core/
 ├── 0-category.json             # Category metadata
 ├── openagent.md
 ├── opencoder.md
 
-.opencode/agent/subagents/development/
+@.opencode/agent/subagents/development/
 ├── 0-category.json             # Subagent category metadata
 ├── frontend-specialist.md
 └── devops-specialist.md
 
-.opencode/context/development/
+@.opencode/context/development/
 ├── navigation.md
 ├── clean-code.md
 ├── react-patterns.md
@@ -177,13 +177,13 @@ The system resolves agent paths flexibly:
 
 ```bash
 # Short ID (backward compatible)
-"openagent" → ".opencode/agent/core/openagent.md"
+"openagent" → "@.opencode/agent/core/openagent.md"
 
 # Subagent path
-"subagents/development/frontend-specialist" → ".opencode/agent/subagents/development/frontend-specialist.md"
+"subagents/development/frontend-specialist" → "@.opencode/agent/subagents/development/frontend-specialist.md"
 
 # Subagent path
-"TestEngineer" → ".opencode/agent/subagents/code/test-engineer.md"
+"TestEngineer" → "@.opencode/agent/subagents/code/test-engineer.md"
 ```
 
 ---
@@ -194,7 +194,7 @@ The system resolves agent paths flexibly:
 
 ```bash
 # Create agent directory
-mkdir -p .opencode/agent/{category}
+mkdir -p @.opencode/agent/{category}
 
 # Create context directory
 mkdir -p .opencode/context/{category}
@@ -206,7 +206,7 @@ mkdir -p evals/agents/{category}
 ### Step 2: Add Category Metadata
 
 ```bash
-cat > .opencode/agent/{category}/0-category.json << 'EOF'
+cat > @.opencode/agent/{category}/0-category.json << 'EOF'
 {
   "name": "Category Name",
   "description": "Brief description",
@@ -301,7 +301,7 @@ Agents load category context based on task:
 <!-- Context: development/react-patterns | Priority: high -->
 ```
 
-Loads: `.opencode/context/ui/web/react-patterns.md`
+Loads: `@.opencode/context/ui/web/react-patterns.md`
 
 ---
 
@@ -335,7 +335,7 @@ Loads: `.opencode/context/ui/web/react-patterns.md`
 ### Old Structure (Flat)
 
 ```
-.opencode/agent/
+@.opencode/agent/
 ├── openagent.md
 ├── opencoder.md
 ├── frontend-specialist.md
@@ -345,7 +345,7 @@ Loads: `.opencode/context/ui/web/react-patterns.md`
 ### New Structure (Category-Based)
 
 ```
-.opencode/agent/
+@.opencode/agent/
 ├── core/
 │   ├── openagent.md
 │   ├── opencoder.md

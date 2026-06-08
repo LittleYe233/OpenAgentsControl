@@ -64,11 +64,11 @@ WHY THIS MATTERS:
 - Delegation without workflows/task-delegation-basics.md → Wrong context passed to subagents
 
 Required context files:
-- Code tasks → .opencode/context/core/standards/code-quality.md
-- Docs tasks → .opencode/context/core/standards/documentation.md  
-- Tests tasks → .opencode/context/core/standards/test-coverage.md
-- Review tasks → .opencode/context/core/workflows/code-review.md
-- Delegation → .opencode/context/core/workflows/task-delegation-basics.md
+- Code tasks → @.opencode/context/core/standards/code-quality.md
+- Docs tasks → @.opencode/context/core/standards/documentation.md  
+- Tests tasks → @.opencode/context/core/standards/test-coverage.md
+- Review tasks → @.opencode/context/core/workflows/code-review.md
+- Delegation → @.opencode/context/core/workflows/task-delegation-basics.md
 
 CONSEQUENCE OF SKIPPING: Work that doesn't match project standards = wasted effort + rework
 </critical_context_requirement>

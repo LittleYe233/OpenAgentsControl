@@ -43,7 +43,7 @@ Create a new agent with minimal, high-signal prompts following "right altitude" 
   </step_1>
 
   <step_2 name="CreateMinimalPrompt">
-    Create `.opencode/agent/{agent-name}.md` with ~500 token system prompt:
+    Create `@.opencode/agent/{agent-name}.md` with ~500 token system prompt:
     
     ```markdown
     ---
@@ -246,7 +246,7 @@ Create a new agent with minimal, high-signal prompts following "right altitude" 
     {
       "name": "{agent-name}",
       "type": "agent",
-      "path": ".opencode/agent/{agent-name}.md",
+      "path": "@.opencode/agent/{agent-name}.md",
       "description": "{description}",
       "category": "primary",
       "status": "experimental",
@@ -283,7 +283,7 @@ Create a new agent with minimal, high-signal prompts following "right altitude" 
     ## ✅ Agent Created: {agent-name}
     
     ### Files Created
-    - `.opencode/agent/{agent-name}.md` - Minimal system prompt (~500 tokens)
+    - `@.opencode/agent/{agent-name}.md` - Minimal system prompt (~500 tokens)
     - `.opencode/context/project/{agent-name}-context.md` - Project context (CLAUDE.md pattern)
     - `evals/agents/{agent-name}/config/config.yaml` - Test config
     - `evals/agents/{agent-name}/tests/` - 8 comprehensive tests
@@ -466,8 +466,8 @@ Create a new agent with minimal, high-signal prompts following "right altitude" 
   </research>
   
   <examples>
-    - `.opencode/agent/core/opencoder.md` - Development specialist example
-    - `.opencode/agent/core/openagent.md` - Universal orchestrator example
-    - `.opencode/agent/subagents/development/frontend-specialist.md` - Category agent example
+    - `@.opencode/agent/core/opencoder.md` - Development specialist example
+    - `@.opencode/agent/core/openagent.md` - Universal orchestrator example
+    - `@.opencode/agent/subagents/development/frontend-specialist.md` - Category agent example
   </examples>
 </references>

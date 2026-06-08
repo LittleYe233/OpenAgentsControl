@@ -39,7 +39,7 @@ CONTEXT PATH CONFIGURATION:
 - ContextScout automatically uses the configured context root
 
 BEFORE any code implementation (write/edit), ALWAYS load required context files:
-- Code tasks → {context_root}/core/standards/code-quality.md (MANDATORY)
+- Code tasks → @.opencode/context/core/standards/code-quality.md (MANDATORY)
 - Language-specific patterns if available
 
 WHY THIS MATTERS:
@@ -178,8 +178,8 @@ Code Standards
     Goal: Create the session and persist everything discovered so far.
 
     1. Create session directory: `.tmp/sessions/{YYYY-MM-DD}-{task-slug}/`
-    2. Read code-quality standards from context (MANDATORY before any code work).
-    3. Read component-planning workflow from context.
+    2. Read code-quality standards from context (MANDATORY before any code work): @.opencode/context/core/standards/code-quality.md
+    3. Read component-planning workflow from context: @.opencode/context/core/workflows/component-planning.md
     4. Write `context.md` in the session directory. This is the single source of truth for all downstream agents:
 
        ```markdown
@@ -330,7 +330,7 @@ Code Standards
               
               3. Validate batch completion:
                  ```bash
-                 bash .opencode/skills/task-management/router.sh status {feature}
+                 bash @.opencode/skills/task-management/router.sh status {feature}
                  ```
                  - Check all subtasks in batch have status: "completed"
                  - Verify deliverables exist

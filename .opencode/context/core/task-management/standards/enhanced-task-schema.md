@@ -48,7 +48,7 @@ All enhancements are **optional** and backward compatible with existing task fil
 **Old format** (still supported):
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md"
+  "@.opencode/context/core/standards/code-quality.md"
 ]
 ```
 
@@ -56,12 +56,12 @@ All enhancements are **optional** and backward compatible with existing task fil
 ```json
 "context_files": [
   {
-    "path": ".opencode/context/core/standards/code-quality.md",
+    "path": "@.opencode/context/core/standards/code-quality.md",
     "lines": "1-50",
     "reason": "Pure function patterns for service layer"
   },
   {
-    "path": ".opencode/context/core/standards/security-patterns.md",
+    "path": "@.opencode/context/core/standards/security-patterns.md",
     "lines": "120-145",
     "reason": "JWT token validation rules"
   }
@@ -449,7 +449,7 @@ Reduce cognitive load by pointing agents to **exact sections** of large files in
 **Single range**:
 ```json
 {
-  "path": ".opencode/context/core/standards/code-quality.md",
+  "path": "@.opencode/context/core/standards/code-quality.md",
   "lines": "53-95",
   "reason": "Pure function and immutability patterns"
 }
@@ -458,7 +458,7 @@ Reduce cognitive load by pointing agents to **exact sections** of large files in
 **Multiple ranges**:
 ```json
 {
-  "path": ".opencode/context/core/standards/security-patterns.md",
+  "path": "@.opencode/context/core/standards/security-patterns.md",
   "lines": "1-25,120-145,200-220",
   "reason": "JWT validation rules and token refresh patterns"
 }
@@ -467,14 +467,14 @@ Reduce cognitive load by pointing agents to **exact sections** of large files in
 **Entire file** (backward compatible):
 ```json
 {
-  "path": ".opencode/context/core/standards/code-quality.md",
+  "path": "@.opencode/context/core/standards/code-quality.md",
   "reason": "All coding standards"
 }
 ```
 
 **Legacy string format** (still supported):
 ```json
-".opencode/context/core/standards/code-quality.md"
+"@.opencode/context/core/standards/code-quality.md"
 ```
 
 ---
@@ -492,9 +492,9 @@ You can mix old and new formats in the same file:
 ```json
 {
   "context_files": [
-    ".opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/code-quality.md",
     {
-      "path": ".opencode/context/core/standards/security-patterns.md",
+      "path": "@.opencode/context/core/standards/security-patterns.md",
       "lines": "120-145",
       "reason": "JWT validation"
     }
@@ -544,12 +544,12 @@ Projects can adopt enhanced fields incrementally:
   "objective": "Implement JWT-based authentication with refresh tokens and role-based access control",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-95",
       "reason": "Pure function patterns for auth service"
     },
     {
-      "path": ".opencode/context/core/standards/security-patterns.md",
+      "path": "@.opencode/context/core/standards/security-patterns.md",
       "lines": "120-145,200-220",
       "reason": "JWT validation and token refresh patterns"
     }
@@ -634,12 +634,12 @@ Projects can adopt enhanced fields incrementally:
   "parallel": false,
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-72",
       "reason": "Pure function patterns"
     },
     {
-      "path": ".opencode/context/core/standards/security-patterns.md",
+      "path": "@.opencode/context/core/standards/security-patterns.md",
       "lines": "120-145",
       "reason": "JWT signing and validation rules"
     }
@@ -694,7 +694,7 @@ When creating new tasks:
 1. **Use line-number precision for large files** (>100 lines):
    ```json
    {
-     "path": ".opencode/context/core/standards/code-quality.md",
+     "path": "@.opencode/context/core/standards/code-quality.md",
      "lines": "53-95",
      "reason": "Pure function patterns"
    }

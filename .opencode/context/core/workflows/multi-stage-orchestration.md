@@ -612,7 +612,7 @@ CoderAgent   CoderAgent   CoderAgent
 - `task.json` — Feature metadata
 - `subtask_NN.json` — Individual task definitions
 
-**CLI**: `.opencode/skill/task-management/scripts/task-cli.ts`
+**CLI**: `@.opencode/skill/task-management/scripts/task-cli.ts`
 
 **Commands**:
 - `status [feature]` — Check task status
@@ -633,15 +633,15 @@ CoderAgent   CoderAgent   CoderAgent
 
 ### Context System Integration
 
-**Standards Location**: `.opencode/context/core/standards/`
+**Standards Location**: `@.opencode/context/core/standards/`
 
-**Workflows Location**: `.opencode/context/core/workflows/`
+**Workflows Location**: `@.opencode/context/core/workflows/`
 
 **Usage**: Referenced in task `context_files` arrays
 
 ### Agent Configuration Integration
 
-**Location**: `.opencode/agent/subagents/core/`
+**Location**: `@.opencode/agent/subagents/core/`
 
 **Files**:
 - `task-manager.md` — TaskManager configuration

@@ -326,11 +326,11 @@ permission:
       structure:
         domains:
           - name: "core"
-            path: ".opencode/context/core"
+            path: "@.opencode/context/core"
             description: "Core development standards and workflows"
             subdomain_count: 5
           - name: "ui"
-            path: ".opencode/context/ui"
+            path: "@.opencode/context/ui"
             description: "UI/UX design and implementation standards"
             subdomain_count: 3
         total_files: 47

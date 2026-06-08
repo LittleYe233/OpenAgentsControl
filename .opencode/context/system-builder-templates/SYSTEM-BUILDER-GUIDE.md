@@ -455,7 +455,7 @@ After your system is generated:
 
 ## Resources
 
-- **Templates**: `.opencode/context/system-builder-templates/`
+- **Templates**: `@.opencode/context/system-builder-templates/`
 - **Examples**: See generated systems for reference
 - **Documentation**: navigation.md, ARCHITECTURE.md, TESTING.md
 - **Patterns**: Review template files for best practices

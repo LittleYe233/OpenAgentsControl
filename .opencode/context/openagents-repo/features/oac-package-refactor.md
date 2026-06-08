@@ -147,10 +147,10 @@ oac install opencode
 📦 Installing OpenCode Developer Profile
   
   Will create/modify:
-  ✓ .opencode/agent/core/openagent.md
-  ✓ .opencode/agent/core/opencoder.md
-  ⚠ .opencode/agent/subagents/code/test-engineer.md (exists - will overwrite)
-  ✓ .opencode/context/core/standards/code-quality.md
+  ✓ @.opencode/agent/core/openagent.md
+  ✓ @.opencode/agent/core/opencoder.md
+  ⚠ @.opencode/agent/subagents/code/test-engineer.md (exists - will overwrite)
+  ✓ @.opencode/context/core/standards/code-quality.md
   ✓ .opencode/config.json
   
   Total: 15 files (2 new, 12 updated, 1 conflict)
@@ -158,7 +158,7 @@ oac install opencode
 ? Proceed with installation? (Y/n)
 
 # If conflicts exist:
-⚠ File exists: .opencode/agent/subagents/code/test-engineer.md
+⚠ File exists: @.opencode/agent/subagents/code/test-engineer.md
   
   Current: 245 lines, modified 2 days ago
   New:     312 lines, version 0.8.0
@@ -187,10 +187,10 @@ oac configure set preferences.yoloMode true
 📦 Installing OpenCode Developer Profile (YOLO MODE)
   
   ⚡ Auto-confirming all operations...
-  ✓ Created .opencode/agent/core/openagent.md
-  ✓ Created .opencode/agent/core/opencoder.md
-  ⚠ Overwrote .opencode/agent/subagents/code/test-engineer.md (backed up to .bak)
-  ✓ Created .opencode/context/core/standards/code-quality.md
+  ✓ Created @.opencode/agent/core/openagent.md
+  ✓ Created @.opencode/agent/core/opencoder.md
+  ⚠ Overwrote @.opencode/agent/subagents/code/test-engineer.md (backed up to .bak)
+  ✓ Created @.opencode/context/core/standards/code-quality.md
   ✓ Created .opencode/config.json
   
   ✅ Installation complete!
@@ -298,7 +298,7 @@ oac install opencode
 # Step 4: Conflict Resolution (if any)
 ⚠ 3 files already exist:
   
-  1. .opencode/agent/subagents/code/test-engineer.md
+  1. @.opencode/agent/subagents/code/test-engineer.md
      Current: 245 lines, modified 2 days ago
      New:     312 lines, version 0.8.0
      
@@ -309,10 +309,10 @@ oac install opencode
     
 # Step 5: Installation
 ⚡ Installing...
-  ✓ Created .opencode/agent/core/openagent.md
-  ✓ Created .opencode/agent/core/opencoder.md
-  ⚠ Backed up .opencode/agent/subagents/code/test-engineer.md → .backups/TestEngineer.md.2026-02-14
-  ✓ Overwrote .opencode/agent/subagents/code/test-engineer.md
+  ✓ Created @.opencode/agent/core/openagent.md
+  ✓ Created @.opencode/agent/core/opencoder.md
+  ⚠ Backed up @.opencode/agent/subagents/code/test-engineer.md → .backups/TestEngineer.md.2026-02-14
+  ✓ Overwrote @.opencode/agent/subagents/code/test-engineer.md
   ...
   
 # Step 6: Summary
@@ -574,7 +574,7 @@ oac install opencode --local
 # Agent needs: 'core/standards/code-quality.md'
 # Resolution:
 # 1. Check: ~/my-project/.oac/context/core/standards/code-quality.md ❌
-# 2. Check: ~/my-project/.opencode/context/core/standards/code-quality.md ✅
+# 2. Check: ~/my-project/@.opencode/context/core/standards/code-quality.md ✅
 # → Uses project-specific context
 ```
 
@@ -660,7 +660,7 @@ const merged = await contextResolver.resolveWithMerge(
 ```bash
 # Show context resolution for a reference
 oac context resolve 'core/standards/code-quality.md'
-  → Resolved to: ~/my-project/.opencode/context/core/standards/code-quality.md
+  → Resolved to: ~/my-project/@.opencode/context/core/standards/code-quality.md
   → Source: project
   → Fallbacks checked: 2
 
@@ -768,7 +768,7 @@ Agent Running Locally (in ~/my-project):
     2. ~/my-project/.opencode/context/... ✅ FOUND
     3. (skip remaining)
               ↓
-    Returns: ~/my-project/.opencode/context/core/standards/code-quality.md
+    Returns: ~/my-project/@.opencode/context/core/standards/code-quality.md
 
 
 Agent Running Globally:
@@ -1131,7 +1131,7 @@ oac edit agent:openagent --in-place
 # Force in-place edit (advanced users)
 oac edit agent:openagent --in-place --force
 
-⚠️  Editing: .opencode/agent/core/openagent.md
+⚠️  Editing: @.opencode/agent/core/openagent.md
 ⚠️  Changes will be overwritten on update
 ⚠️  Creating backup: (example: .opencode/.backups/openagent.md.2026-02-14)
 
@@ -1889,7 +1889,7 @@ oac create
   ? Description: Expert in Rust programming
   ? Category: development
   
-  ✓ Created .opencode/agent/subagents/development/rust-specialist.md
+  ✓ Created @.opencode/agent/subagents/development/rust-specialist.md
   ✓ Created tests/smoke-test.yaml
   ✓ Added to registry
   

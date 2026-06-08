@@ -50,31 +50,31 @@ Full feature delivery workflow
 ### Context Handoff Workflow
 ```bash
 # Create context index
-bash .opencode/skill/project-orchestration/router.sh create auth-system
+bash @.opencode/skill/project-orchestration/router.sh create auth-system
 
 # Get minimal context for specific agent
-bash .opencode/skill/project-orchestration/router.sh get-context auth-system StoryMapper
+bash @.opencode/skill/project-orchestration/router.sh get-context auth-system StoryMapper
 
 # Track agent output
-bash .opencode/skill/project-orchestration/router.sh add-output auth-system ArchitectureAnalyzer .tmp/architecture/auth-system/contexts.json
+bash @.opencode/skill/project-orchestration/router.sh add-output auth-system ArchitectureAnalyzer .tmp/architecture/auth-system/contexts.json
 
 # Show full index
-bash .opencode/skill/project-orchestration/router.sh show auth-system
+bash @.opencode/skill/project-orchestration/router.sh show auth-system
 ```
 
 ### 8-Stage Workflow
 ```bash
 # Initialize workflow
-bash .opencode/skill/project-orchestration/router.sh stage-init auth-system
+bash @.opencode/skill/project-orchestration/router.sh stage-init auth-system
 
 # Check status
-bash .opencode/skill/project-orchestration/router.sh stage-status auth-system
+bash @.opencode/skill/project-orchestration/router.sh stage-status auth-system
 
 # Mark stage complete
-bash .opencode/skill/project-orchestration/router.sh stage-complete auth-system 1
+bash @.opencode/skill/project-orchestration/router.sh stage-complete auth-system 1
 
 # Rollback if needed
-bash .opencode/skill/project-orchestration/router.sh stage-rollback auth-system 1
+bash @.opencode/skill/project-orchestration/router.sh stage-rollback auth-system 1
 ```
 
 ## Command Reference
@@ -107,7 +107,7 @@ bash .opencode/skill/project-orchestration/router.sh stage-rollback auth-system 
 ## Architecture
 
 ```
-.opencode/skill/project-orchestration/
+@.opencode/skill/project-orchestration/
 ├── SKILL.md                          # This file
 ├── router.sh                         # CLI router
 ├── scripts/
@@ -123,9 +123,9 @@ bash .opencode/skill/project-orchestration/router.sh stage-rollback auth-system 
 ## File Locations
 
 ### Scripts
-- **Context Index**: `.opencode/skill/project-orchestration/scripts/context-index.ts`
-- **Session Context**: `.opencode/skill/project-orchestration/scripts/session-context-manager.ts`
-- **Stage CLI**: `.opencode/skill/project-orchestration/scripts/stage-cli.ts`
+- **Context Index**: `@.opencode/skill/project-orchestration/scripts/context-index.ts`
+- **Session Context**: `@.opencode/skill/project-orchestration/scripts/session-context-manager.ts`
+- **Stage CLI**: `@.opencode/skill/project-orchestration/scripts/stage-cli.ts`
 
 ### Runtime Files
 - **Context Index**: `.tmp/context-index/{feature}.json`
@@ -133,9 +133,9 @@ bash .opencode/skill/project-orchestration/router.sh stage-rollback auth-system 
 - **Stage Tracking**: `.tmp/sessions/{session-id}/stage-tracking.json`
 
 ### Workflow Guides
-- **Context Handoff**: `.opencode/skill/project-orchestration/workflows/context-handoff.md`
-- **8-Stage Delivery**: `.opencode/skill/project-orchestration/workflows/8-stage-delivery.md`
-- **Planning Agents**: `.opencode/skill/project-orchestration/workflows/planning-agents.md`
+- **Context Handoff**: `@.opencode/skill/project-orchestration/workflows/context-handoff.md`
+- **8-Stage Delivery**: `@.opencode/skill/project-orchestration/workflows/8-stage-delivery.md`
+- **Planning Agents**: `@.opencode/skill/project-orchestration/workflows/planning-agents.md`
 
 ## Context Handoff Pattern
 
@@ -186,7 +186,7 @@ import { createSession, updateSession, markStageComplete } from './scripts/sessi
 // Create session
 const sessionId = await createSession('auth-system', {
   request: 'Build JWT authentication',
-  contextFiles: ['.opencode/context/core/standards/code-quality.md'],
+  contextFiles: ['@.opencode/context/core/standards/code-quality.md'],
   exitCriteria: ['All endpoints implemented']
 });
 
@@ -246,22 +246,22 @@ The Multi-Stage Orchestration Workflow provides a systematic approach to complex
 
 ```bash
 # Initialize workflow
-bash .opencode/skill/project-orchestration/router.sh stage-init auth-system
+bash @.opencode/skill/project-orchestration/router.sh stage-init auth-system
 
 # Check status
-bash .opencode/skill/project-orchestration/router.sh stage-status auth-system
+bash @.opencode/skill/project-orchestration/router.sh stage-status auth-system
 
 # Validate stage readiness
-bash .opencode/skill/project-orchestration/router.sh stage-validate auth-system 1
+bash @.opencode/skill/project-orchestration/router.sh stage-validate auth-system 1
 
 # Mark stage complete
-bash .opencode/skill/project-orchestration/router.sh stage-complete auth-system 1
+bash @.opencode/skill/project-orchestration/router.sh stage-complete auth-system 1
 
 # Rollback if needed
-bash .opencode/skill/project-orchestration/router.sh stage-rollback auth-system 1
+bash @.opencode/skill/project-orchestration/router.sh stage-rollback auth-system 1
 
 # Abort workflow
-bash .opencode/skill/project-orchestration/router.sh stage-abort auth-system
+bash @.opencode/skill/project-orchestration/router.sh stage-abort auth-system
 ```
 
 ### Stage Tracking
@@ -318,6 +318,6 @@ See `workflows/planning-agents.md` for detailed integration guide.
 - Document decisions with ADRManager
 
 ## See Also
-- Task Management: `.opencode/skill/task-management/SKILL.md`
+- Task Management: `@.opencode/skill/task-management/SKILL.md`
 - Planning Agents Guide: `.opencode/docs/agents/planning-agents-guide.md`
-- Multi-Stage Orchestration: `.opencode/context/core/workflows/multi-stage-orchestration.md`
+- Multi-Stage Orchestration: `@.opencode/context/core/workflows/multi-stage-orchestration.md`

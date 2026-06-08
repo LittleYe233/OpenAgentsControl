@@ -400,7 +400,7 @@ read(filePath="{discovered-standards-file}")
 ### 🎯 Primary Results (Must Read)
 
 #### ⭐⭐⭐⭐⭐ Code Standards
-**Path**: `.opencode/context/core/standards/code.md`
+**Path**: `@.opencode/context/core/standards/code.md`
 **Purpose**: Core coding standards and conventions for the project
 
 **Key Findings**:
@@ -441,7 +441,7 @@ docs/contributing/
 ├── pull-request-process.md ⭐ FOUND
 └── code-review.md ⭐ FOUND
 
-.opencode/context/core/workflows/
+@.opencode/context/core/workflows/
 └── review.md ⭐ FOUND
 ```
 
@@ -457,7 +457,7 @@ docs/contributing/
 ### Files to Load (Priority Order)
 1. `docs/contributing/CONTRIBUTING.md` - Main contribution guide
 2. `docs/contributing/pull-request-process.md` - Detailed PR workflow
-3. `.opencode/context/core/workflows/review.md` - Code review expectations
+3. `@.opencode/context/core/workflows/review.md` - Code review expectations
 
 ### Key Takeaways
 - Fork-based contribution workflow
@@ -472,8 +472,8 @@ docs/contributing/
 
 ### Additional Context Available
 If you need more information on:
-- **Code standards** → Check `.opencode/context/core/standards/code.md`
-- **Testing guidelines** → Check `.opencode/context/core/standards/tests.md`
+- **Code standards** → Check `@.opencode/context/core/standards/code.md`
+- **Testing guidelines** → Check `@.opencode/context/core/standards/tests.md`
 ```
 
 ## Discovery Patterns

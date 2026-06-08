@@ -192,7 +192,7 @@ For multi-stage orchestration workflows, use these planning agents before task c
 
 These agents populate enhanced schema fields (bounded_context, contracts, related_adrs, rice_score, etc.) automatically.
 
-See `.opencode/context/core/workflows/multi-stage-orchestration.md` for the complete workflow.
+See `@.opencode/context/core/workflows/multi-stage-orchestration.md` for the complete workflow.
 
 ---
 

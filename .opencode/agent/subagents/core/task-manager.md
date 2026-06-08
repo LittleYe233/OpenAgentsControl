@@ -37,7 +37,7 @@ permission:
 
 <critical_context_requirement>
 BEFORE starting task breakdown, ALWAYS:
-  1. Load context: `.opencode/context/core/task-management/navigation.md`
+  1. Load context: `@.opencode/context/core/task-management/navigation.md`
   2. Check existing tasks: Run `task-cli.ts status` to see current state
   3. If context file is provided in prompt or exists at `.tmp/sessions/{session-id}/context.md`, load it
   4. If context is missing or unclear, delegate discovery to ContextScout and capture relevant context file paths
@@ -56,7 +56,7 @@ WHY THIS MATTERS:
       - Expect the calling agent to supply relevant context file paths; request them if absent.
       - Use the task tool ONLY for ContextScout discovery, never to delegate task planning to TaskManager.
       - Do NOT create session bundles or write `.tmp/sessions/**` files.
-      - Do NOT read `.opencode/context/core/workflows/task-delegation-basics.md` or follow delegation workflows.
+      - Do NOT read `@.opencode/context/core/workflows/task-delegation-basics.md` or follow delegation workflows.
       - Your output (JSON files) is your primary communication channel.
     </with_meta_agent>
 
@@ -78,14 +78,14 @@ WHY THIS MATTERS:
       <action>Load context and check current task state</action>
       <process>
         1. Load task management context:
-           - `.opencode/context/core/task-management/navigation.md`
-           - `.opencode/context/core/task-management/standards/task-schema.md`
-           - `.opencode/context/core/task-management/guides/splitting-tasks.md`
-           - `.opencode/context/core/task-management/guides/managing-tasks.md`
+           - `@.opencode/context/core/task-management/navigation.md`
+           - `@.opencode/context/core/task-management/standards/task-schema.md`
+           - `@.opencode/context/core/task-management/guides/splitting-tasks.md`
+           - `@.opencode/context/core/task-management/guides/managing-tasks.md`
 
         2. Check current task state:
            ```bash
-           npx ts-node --compiler-options '{"module":"commonjs"}' .opencode/skills/task-management/scripts/task-cli.ts status
+           npx ts-node --compiler-options '{"module":"commonjs"}' @.opencode/skills/task-management/scripts/task-cli.ts status
            ```
 
         3. If context bundle provided, load and extract:
@@ -247,12 +247,12 @@ WHY THIS MATTERS:
               ```json
               "context_files": [
                 {
-                  "path": ".opencode/context/core/standards/code-quality.md",
+                  "path": "@.opencode/context/core/standards/code-quality.md",
                   "lines": "53-95",
                   "reason": "Pure function patterns for service layer"
                 },
                 {
-                  "path": ".opencode/context/core/standards/security-patterns.md",
+                  "path": "@.opencode/context/core/standards/security-patterns.md",
                   "lines": "120-145,200-220",
                   "reason": "JWT validation and token refresh patterns"
                 }
@@ -272,14 +272,14 @@ WHY THIS MATTERS:
  
               **FRONTEND RULE**: If a task involves UI design, styling, or frontend implementation:
               1. Set `suggested_agent`: "OpenFrontendSpecialist"
-              2. Include `.opencode/context/ui/web/ui-styling-standards.md` and `.opencode/context/core/workflows/design-iteration-overview.md` in `context_files`.
+              2. Include `@.opencode/context/ui/web/ui-styling-standards.md` and `@.opencode/context/core/workflows/design-iteration-overview.md` in `context_files`.
               3. If the design task is stage-specific, also include the relevant stage file(s): `design-iteration-stage-layout.md`, `design-iteration-stage-theme.md`, `design-iteration-stage-animation.md`, `design-iteration-stage-implementation.md`.
               4. Ensure `acceptance_criteria` includes "Follows 4-stage design workflow" and "Responsive at all breakpoints".
               5. **PARALLELIZATION**: Design tasks can run in parallel (`parallel: true`) since design work is isolated and doesn't affect backend/logic implementation. Only mark `parallel: false` if design depends on backend API contracts or data structures.
  
          4. Validate with CLI:
            ```bash
-           npx ts-node --compiler-options '{"module":"commonjs"}' .opencode/skills/task-management/scripts/task-cli.ts validate {feature}
+           npx ts-node --compiler-options '{"module":"commonjs"}' @.opencode/skills/task-management/scripts/task-cli.ts validate {feature}
            ```
 
         5. Report creation:
@@ -308,7 +308,7 @@ WHY THIS MATTERS:
 
         3. If all criteria pass:
            ```bash
-           npx ts-node --compiler-options '{"module":"commonjs"}' .opencode/skills/task-management/scripts/task-cli.ts complete {feature} {seq} "{summary}"
+           npx ts-node --compiler-options '{"module":"commonjs"}' @.opencode/skills/task-management/scripts/task-cli.ts complete {feature} {seq} "{summary}"
            ```
 
         4. If criteria fail:
@@ -318,7 +318,7 @@ WHY THIS MATTERS:
 
         5. Check for next task:
            ```bash
-           npx ts-node --compiler-options '{"module":"commonjs"}' .opencode/skills/task-management/scripts/task-cli.ts next {feature}
+           npx ts-node --compiler-options '{"module":"commonjs"}' @.opencode/skills/task-management/scripts/task-cli.ts next {feature}
            ```
       </process>
       <checkpoint>Task verified and status updated</checkpoint>
@@ -330,7 +330,7 @@ WHY THIS MATTERS:
       <process>
         1. Verify all tasks complete:
            ```bash
-           npx ts-node --compiler-options '{"module":"commonjs"}' .opencode/skills/task-management/scripts/task-cli.ts status {feature}
+           npx ts-node --compiler-options '{"module":"commonjs"}' @.opencode/skills/task-management/scripts/task-cli.ts status {feature}
            ```
 
         2. If completed_count == subtask_count:
@@ -394,12 +394,12 @@ Before any status update or file modification:
       ```json
       "context_files": [
         {
-          "path": ".opencode/context/core/standards/code-quality.md",
+          "path": "@.opencode/context/core/standards/code-quality.md",
           "lines": "53-95",
           "reason": "Pure function patterns for service layer"
         },
         {
-          "path": ".opencode/context/core/standards/security-patterns.md",
+          "path": "@.opencode/context/core/standards/security-patterns.md",
           "lines": "120-145,200-220",
           "reason": "JWT validation and token refresh patterns"
         }
@@ -510,12 +510,12 @@ Before any status update or file modification:
       "objective": "Implement JWT-based authentication with refresh tokens",
       "context_files": [
         {
-          "path": ".opencode/context/core/standards/code-quality.md",
+          "path": "@.opencode/context/core/standards/code-quality.md",
           "lines": "53-95",
           "reason": "Pure function patterns for auth service"
         },
         {
-          "path": ".opencode/context/core/standards/security-patterns.md",
+          "path": "@.opencode/context/core/standards/security-patterns.md",
           "lines": "120-145",
           "reason": "JWT validation rules"
         }
@@ -574,12 +574,12 @@ Before any status update or file modification:
       "parallel": false,
       "context_files": [
         {
-          "path": ".opencode/context/core/standards/code-quality.md",
+          "path": "@.opencode/context/core/standards/code-quality.md",
           "lines": "53-72",
           "reason": "Pure function patterns"
         },
         {
-          "path": ".opencode/context/core/standards/security-patterns.md",
+          "path": "@.opencode/context/core/standards/security-patterns.md",
           "lines": "120-145",
           "reason": "JWT signing and validation rules"
         }
@@ -626,7 +626,7 @@ Use task-cli.ts for all status operations:
 | `complete feature seq "summary"` | After verifying task completion |
 | `validate [feature]` | After creating files |
 
-Script location: `.opencode/skills/task-management/scripts/task-cli.ts`
+Script location: `@.opencode/skills/task-management/scripts/task-cli.ts`
 </cli_integration>
 
 <quality_standards>

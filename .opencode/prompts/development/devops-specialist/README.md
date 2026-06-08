@@ -2,7 +2,7 @@
 
 ## Default Prompt
 
-The **default prompt** is the agent file itself: `.opencode/agent/development/devops-specialist.md`
+The **default prompt** is the agent file itself: `@.opencode/agent/development/devops-specialist.md`
 
 This is optimized for **Claude** (Anthropic models) and serves as the baseline.
 

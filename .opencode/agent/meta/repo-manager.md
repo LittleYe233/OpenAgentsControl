@@ -215,7 +215,7 @@ task(
      <process>
        <!-- Step 1: Load quick-start (always) -->
        1. Load quick-start.md for repo orientation:
-          Read: .opencode/context/openagents-repo/quick-start.md
+          Read: @.opencode/context/openagents-repo/quick-start.md
        
        <!-- Step 2: Load discovered context files -->
        2. Load context files discovered in Stage 1 (Discovery):
@@ -291,10 +291,10 @@ task(
            {List context files discovered by ContextScout in Stage 3}
            
            Example:
-           - .opencode/context/openagents-repo/quick-start.md
-           - .opencode/context/openagents-repo/core-concepts/evals.md
-           - .opencode/context/core/standards/code-quality.md
-           - .opencode/context/core/standards/test-coverage.md
+           - @.opencode/context/openagents-repo/quick-start.md
+           - @.opencode/context/openagents-repo/core-concepts/evals.md
+           - @.opencode/context/core/standards/code-quality.md
+           - @.opencode/context/core/standards/test-coverage.md
            
            ## Key Requirements (Extracted from Context)
            {Requirements extracted in Stage 3}
@@ -425,7 +425,7 @@ task(
              subagent_type="TestEngineer",
              description="Write tests for {feature}",
              prompt="Context to load:
-                     - .opencode/context/core/standards/test-coverage.md
+                     - @.opencode/context/core/standards/test-coverage.md
                      
                      Task: Write tests for {feature}
                      
@@ -449,8 +449,8 @@ task(
              subagent_type="CodeReviewer",
              description="Review {feature} implementation",
              prompt="Context to load:
-                     - .opencode/context/core/workflows/code-review.md
-                     - .opencode/context/core/standards/code-quality.md
+                     - @.opencode/context/core/workflows/code-review.md
+                     - @.opencode/context/core/standards/code-quality.md
                      
                      Task: Review {feature} implementation
                      
@@ -475,7 +475,7 @@ task(
              subagent_type="CoderAgent",
              description="Implement {subtask}",
              prompt="Context to load:
-                     - .opencode/context/core/standards/code-quality.md
+                     - @.opencode/context/core/standards/code-quality.md
                      
                      Task: Implement subtask from tasks/subtasks/{feature}/{seq}-{task}.md
                      
@@ -621,7 +621,7 @@ task(
          
          IF simple doc updates (1-2 files, minor changes):
            Update directly using edit tool
-           Apply standards from .opencode/context/core/standards/documentation.md
+           Apply standards from @.opencode/context/core/standards/documentation.md
          
          ELSE IF comprehensive docs (multi-page, new docs):
            Delegate to DocWriter subagent:
@@ -630,7 +630,7 @@ task(
              subagent_type="DocWriter",
              description="Update documentation for {feature}",
              prompt="Context to load:
-                     - .opencode/context/core/standards/documentation.md
+                     - @.opencode/context/core/standards/documentation.md
                      
                      Task: Update documentation for {feature}
                      
@@ -798,7 +798,7 @@ task(
     <stage_4_execute>
       Decision: Simple task → Execute directly (Step 4C)
       
-      1. Create .opencode/agent/data/data-analyst.md:
+      1. Create @.opencode/agent/data/data-analyst.md:
          - Add proper frontmatter
          - Write agent prompt
          - Follow modular patterns
@@ -905,11 +905,11 @@ task(
          Build parallel test execution for eval framework
          
          ## Context Files to Load
-         - .opencode/context/openagents-repo/quick-start.md
-         - .opencode/context/openagents-repo/core-concepts/evals.md
-         - .opencode/context/core/standards/code-quality.md
-         - .opencode/context/core/standards/test-coverage.md
-         - .opencode/context/core/standards/security-patterns.md
+         - @.opencode/context/openagents-repo/quick-start.md
+         - @.opencode/context/openagents-repo/core-concepts/evals.md
+         - @.opencode/context/core/standards/code-quality.md
+         - @.opencode/context/core/standards/test-coverage.md
+         - @.opencode/context/core/standards/security-patterns.md
          
          ## Key Requirements
          - Modular, functional code patterns
@@ -965,7 +965,7 @@ task(
            subagent_type="TestEngineer",
            description="Validate parallel execution tests",
            prompt="Context to load:
-                   - .opencode/context/core/standards/test-coverage.md
+                   - @.opencode/context/core/standards/test-coverage.md
                    
                    Validate test coverage for parallel execution
                    Files: evals/framework/src/__tests__/parallel.test.ts
@@ -978,7 +978,7 @@ task(
            subagent_type="CodeReviewer",
            description="Review parallel execution implementation",
            prompt="Context to load:
-                   - .opencode/context/core/workflows/code-review.md
+                   - @.opencode/context/core/workflows/code-review.md
                    
                    Review parallel test execution implementation
                    Files: parallel-executor.ts, worker-pool.ts

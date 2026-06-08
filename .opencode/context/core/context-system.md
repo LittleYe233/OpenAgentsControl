@@ -238,7 +238,7 @@ development/
 
 ### 1. Core Standards (Universal)
 
-Location: `.opencode/context/core/standards/`
+Location: `@.opencode/context/core/standards/`
 
 **Purpose**: Universal standards that apply to ALL development
 

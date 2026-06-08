@@ -171,7 +171,7 @@ dependencies: []      # ❌ Not valid
 
 ```bash
 # Check YAML syntax
-yq eval '.opencode/agent/category/agent.md' > /dev/null
+yq eval '@.opencode/agent/category/agent.md' > /dev/null
 
 # Find duplicate keys
 grep -A 50 "^---$" agent.md | grep -E "^[a-z_]+:" | sort | uniq -d

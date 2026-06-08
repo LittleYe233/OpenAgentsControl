@@ -41,7 +41,7 @@ permission:
 
 <critical_context_requirement>
 BEFORE starting journey mapping, ALWAYS:
-  1. Load context: `.opencode/context/core/task-management/navigation.md`
+  1. Load context: `@.opencode/context/core/task-management/navigation.md`
   2. If architecture analysis exists, load bounded context definitions
   3. If context is missing or unclear, delegate discovery to ContextScout
   4. Understand the domain and user personas before mapping journeys
@@ -82,7 +82,7 @@ WHY THIS MATTERS:
       <action>Load context and understand domain</action>
       <process>
         1. Load task management context:
-           - `.opencode/context/core/task-management/navigation.md`
+           - `@.opencode/context/core/task-management/navigation.md`
 
         2. If architecture analysis exists, load:
            - Bounded context definitions

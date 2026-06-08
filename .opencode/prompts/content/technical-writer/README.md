@@ -2,7 +2,7 @@
 
 ## Default Prompt
 
-The **default prompt** is the agent file itself: `.opencode/agent/content/technical-writer.md`
+The **default prompt** is the agent file itself: `@.opencode/agent/content/technical-writer.md`
 
 This is optimized for **Claude** (Anthropic models) and serves as the baseline.
 

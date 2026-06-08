@@ -28,7 +28,7 @@ permission:
 <critical_rules priority="absolute" enforcement="strict">
   <rule id="tool_usage">
     ALLOWED: 
-    - read: ONLY .opencode/context/core/standards/external-library-registry.md and .tmp/external-context/**
+    - read: ONLY @.opencode/context/core/standards/external-library-registry.md and .tmp/external-context/**
     - mcp: ONLY Context7_* tools (builtin MCP server feature)
     - grep: ONLY within .tmp/external-context/
     - webfetch: Any URL
@@ -122,7 +122,7 @@ permission:
   <stage id="1" name="DetectLibrary">
     <action>Identify library/framework from user query AND understand tech stack context</action>
     <process>
-      1. Read `.opencode/context/core/standards/external-library-registry.md`
+      1. Read `@.opencode/context/core/standards/external-library-registry.md`
       2. Match query against library names, package names, and aliases
       3. Extract library ID and official docs URL
       4. **Detect tech stack context** from user query:
@@ -240,7 +240,7 @@ permission:
 
 ## Quick Reference
 
-**Library Registry**: `.opencode/context/core/standards/external-library-registry.md` — Supported libraries, IDs, and official docs links
+**Library Registry**: `@.opencode/context/core/standards/external-library-registry.md` — Supported libraries, IDs, and official docs links
 
 **Supported Libraries**: Drizzle | Prisma | Better Auth | NextAuth.js | Clerk | Next.js | React | TanStack Query/Router | Cloudflare Workers | AWS Lambda | Vercel | Shadcn/ui | Radix UI | Tailwind CSS | Zustand | Jotai | Zod | React Hook Form | Vitest | Playwright
 
@@ -362,7 +362,7 @@ You succeed when ALL of these are complete:
   <stage id="1" name="DetectLibrary">
     <action>Identify library/framework from user query AND understand tech stack context</action>
     <process>
-      1. Read `.opencode/context/core/standards/external-library-registry.md`
+      1. Read `@.opencode/context/core/standards/external-library-registry.md`
       2. Match query against library names, package names, and aliases
       3. Extract library ID and official docs URL
       4. **Detect tech stack context** from user query:
@@ -480,7 +480,7 @@ You succeed when ALL of these are complete:
 
 ## Quick Reference
 
-**Library Registry**: `.opencode/context/core/standards/external-library-registry.md` — Supported libraries, IDs, and official docs links
+**Library Registry**: `@.opencode/context/core/standards/external-library-registry.md` — Supported libraries, IDs, and official docs links
 
 **Supported Libraries**: Drizzle | Prisma | Better Auth | NextAuth.js | Clerk | Next.js | React | TanStack Query/Router | Cloudflare Workers | AWS Lambda | Vercel | Shadcn/ui | Radix UI | Tailwind CSS | Zustand | Jotai | Zod | React Hook Form | Vitest | Playwright
 

@@ -58,7 +58,7 @@ open ../results/index.html
 ```
 
 **Architecture:**
-- **Agent files** (`.opencode/agent/*.md`) = Canonical defaults (source of truth)
+- **Agent files** (`@.opencode/agent/*.md`) = Canonical defaults (source of truth)
 - **Prompt variants** (`.opencode/prompts/<agent>/<model>.md`) = Model-specific optimizations
 - **Results** always saved to `.opencode/prompts/<agent>/results/` (including default)
 
@@ -292,7 +292,7 @@ npm run eval:sdk -- --agent=openagent --prompt-variant=your-variant --suite=core
 ## 🎓 Design Principles
 
 ### 1. Agent Files are Canonical Defaults
-- Agent files (`.opencode/agent/*.md`) are the source of truth
+- Agent files (`@.opencode/agent/*.md`) are the source of truth
 - Tested and production-ready
 - Optimized for Claude (primary model)
 - Modified through normal PR process

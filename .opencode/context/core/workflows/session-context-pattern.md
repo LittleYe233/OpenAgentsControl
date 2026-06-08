@@ -148,7 +148,7 @@ Stage Outputs:
 **Stage 0: Initialize Session**
 
 ```typescript
-import { createSession } from ".opencode/skill/task-management/scripts/session-context-manager";
+import { createSession } from "@.opencode/skill/task-management/scripts/session-context-manager";
 
 const result = createSession(feature, request, {
   contextFiles: [], // Will be populated by ContextScout
@@ -172,8 +172,8 @@ import { updateSession, markStageComplete } from "./session-context-manager";
 // After ContextScout completes
 updateSession(sessionId, {
   contextFiles: [
-    ".opencode/context/core/standards/code-quality.md",
-    ".opencode/context/core/standards/security-patterns.md",
+    "@.opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/security-patterns.md",
   ],
 });
 
@@ -203,7 +203,7 @@ updateSession(sessionId, { status: "completed" });
 **Stage 0: Load Session Context**
 
 ```typescript
-import { loadSession } from ".opencode/skill/task-management/scripts/session-context-manager";
+import { loadSession } from "@.opencode/skill/task-management/scripts/session-context-manager";
 
 const result = loadSession(sessionId);
 if (!result.success) {
@@ -251,7 +251,7 @@ addDecision(sessionId, {
 **Before Coding: Load Session Context**
 
 ```typescript
-import { loadSession } from ".opencode/skill/task-management/scripts/session-context-manager";
+import { loadSession } from "@.opencode/skill/task-management/scripts/session-context-manager";
 
 const result = loadSession(sessionId);
 const session = result.session;
@@ -290,9 +290,9 @@ import { updateSession } from "./session-context-manager";
 
 updateSession(sessionId, {
   contextFiles: [
-    ".opencode/context/core/standards/code-quality.md",
-    ".opencode/context/core/standards/security-patterns.md",
-    "(example: .opencode/context/core/standards/naming-conventions.md)",
+    "@.opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/security-patterns.md",
+    "(example: @.opencode/context/core/standards/naming-conventions.md)",
   ],
   referenceFiles: [
     "src/middleware/auth.middleware.ts",
@@ -625,7 +625,7 @@ const { sessionId } = createSession(
 
 // Stage 0: ContextScout discovers context
 updateSession(sessionId, {
-  contextFiles: [".opencode/context/core/standards/code-quality.md"],
+  contextFiles: ["@.opencode/context/core/standards/code-quality.md"],
   referenceFiles: ["src/middleware/auth.middleware.ts"],
 });
 markStageComplete(sessionId, "Stage 0: Context Loading", []);
@@ -661,7 +661,7 @@ updateSession(sessionId, { status: "completed" });
 
 ## Related
 
-- `.opencode/skill/task-management/scripts/session-context-manager.ts` - Implementation
-- `.opencode/context/core/task-management/standards/task-schema.md` - Task JSON schema
-- `.opencode/context/core/workflows/task-delegation-basics.md` - Multi-agent orchestration
+- `@.opencode/skill/task-management/scripts/session-context-manager.ts` - Implementation
+- `@.opencode/context/core/task-management/standards/task-schema.md` - Task JSON schema
+- `@.opencode/context/core/workflows/task-delegation-basics.md` - Multi-agent orchestration
 - `.tmp/sessions/test-task-manager/context.md` - Example session context

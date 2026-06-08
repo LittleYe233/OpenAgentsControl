@@ -743,6 +743,6 @@ Suggested Approach:
 
 ## Related
 
-- `.opencode/agent/subagents/core/task-manager.md` - Uses contexts.json for task planning
-- `.opencode/context/core/task-management/standards/enhanced-task-schema.md` - Schema for bounded_context, module fields
+- `@.opencode/agent/subagents/core/task-manager.md` - Uses contexts.json for task planning
+- `@.opencode/context/core/task-management/standards/enhanced-task-schema.md` - Schema for bounded_context, module fields
 - DDD pattern guides (discovered via ContextScout)

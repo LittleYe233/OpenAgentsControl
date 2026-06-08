@@ -181,8 +181,8 @@ cat .tmp/sessions/$SESSION/PROGRESS.md | grep -A20 "Completed Work"
 
 ```markdown
 ## Context Files (Standards to Follow)
-- .opencode/context/core/standards/code-quality.md - CRITICAL
-- .opencode/context/core/standards/test-coverage.md - CRITICAL
+- @.opencode/context/core/standards/code-quality.md - CRITICAL
+- @.opencode/context/core/standards/test-coverage.md - CRITICAL
 ```
 
 **Before writing any code**, load these standards!
@@ -247,7 +247,7 @@ cat .tmp/sessions/$SESSION/context.md | grep -A30 "Components"
 cat .tmp/sessions/$SESSION/context.md | grep -A15 "Context Files"
 
 # Load the standards
-cat .opencode/context/core/standards/code-quality.md
+cat @.opencode/context/core/standards/code-quality.md
 ```
 
 **Time**: 5 minutes

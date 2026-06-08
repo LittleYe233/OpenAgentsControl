@@ -27,11 +27,11 @@ The Agent Validator Plugin is a real-time monitoring and validation system for O
 
 ### Installation
 
-The plugin auto-loads from `.opencode/plugin/` when OpenCode starts.
+The plugin auto-loads from `@.opencode/plugin/` when OpenCode starts.
 
 **Install dependencies:**
 ```bash
-cd ~/.opencode/plugin
+cd ~/@.opencode/plugin
 npm install
 # or
 bun install
@@ -199,9 +199,9 @@ analyze_context_reads
 
 ### Files Read:
 - **code.md** (2 reads)
-  `.opencode/context/core/standards/code-quality.md`
+  `@.opencode/context/core/standards/code-quality.md`
 - **delegation.md** (1 read)
-  `.opencode/context/core/workflows/task-delegation-basics.md`
+  `@.opencode/context/core/workflows/task-delegation-basics.md`
 
 ### Timeline:
 1. [10:23:45] code.md
@@ -601,7 +601,7 @@ const approvalKeywords = [
 
 ### Customizing Validation Rules
 
-Edit `.opencode/plugin/agent-validator.ts` to customize:
+Edit `@.opencode/plugin/agent-validator.ts` to customize:
 
 **1. Add custom approval keywords:**
 ```typescript

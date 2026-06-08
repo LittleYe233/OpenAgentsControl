@@ -118,7 +118,7 @@ Agents:
 
 ## Subagents
 
-**Location**: `.opencode/agent/subagents/`
+**Location**: `@.opencode/agent/subagents/`
 
 **Purpose**: Delegated specialists for specific subtasks
 
@@ -176,16 +176,16 @@ The system supports multiple path formats for backward compatibility:
 
 ```bash
 # Short ID (backward compatible)
-"openagent" → resolves to → ".opencode/agent/core/openagent.md"
+"openagent" → resolves to → "@.opencode/agent/core/openagent.md"
 
 # Category path
-"core/openagent" → resolves to → ".opencode/agent/core/openagent.md"
+"core/openagent" → resolves to → "@.opencode/agent/core/openagent.md"
 
 # Full category path
-"development/frontend-specialist" → resolves to → ".opencode/agent/subagents/development/frontend-specialist.md"
+"development/frontend-specialist" → resolves to → "@.opencode/agent/subagents/development/frontend-specialist.md"
 
 # Subagent path
-"TestEngineer" → resolves to → ".opencode/agent/subagents/code/test-engineer.md"
+"TestEngineer" → resolves to → "@.opencode/agent/subagents/code/test-engineer.md"
 ```
 
 ### Resolution Rules
@@ -232,7 +232,7 @@ Agents should load relevant context files based on task type:
 <!-- Context: standards/code | Priority: critical -->
 ```
 
-Loads: `.opencode/context/core/standards/code-quality.md`
+Loads: `@.opencode/context/core/standards/code-quality.md`
 
 ### Category Context
 
@@ -240,7 +240,7 @@ Loads: `.opencode/context/core/standards/code-quality.md`
 <!-- Context: development/react-patterns | Priority: high -->
 ```
 
-Loads: `.opencode/context/ui/web/react-patterns.md`
+Loads: `@.opencode/context/ui/web/react-patterns.md`
 
 ### Multiple Contexts
 
@@ -255,7 +255,7 @@ Loads: `.opencode/context/ui/web/react-patterns.md`
 ### 1. Creation
 ```bash
 # Create agent file
-touch .opencode/agent/{category}/{agent-name}.md
+touch @.opencode/agent/{category}/{agent-name}.md
 
 # Add frontmatter and content
 # (See guides/adding-agent.md for details)

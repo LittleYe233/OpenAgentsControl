@@ -17,7 +17,7 @@ Simple plugin that helps CoderAgent by showing toast notifications and reminders
 
 ## Installation
 
-Already installed at `.opencode/plugins/coder-verification/`
+Already installed at `@.opencode/plugins/coder-verification/`
 
 Restart OpenCode to load.
 

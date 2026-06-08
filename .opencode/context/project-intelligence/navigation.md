@@ -45,10 +45,10 @@
 ## Integration
 
 This folder is referenced from:
-- `.opencode/context/core/standards/project-intelligence.md` (standards and patterns)
-- `.opencode/context/core/system/context-guide.md` (context loading)
+- `@.opencode/context/core/standards/project-intelligence.md` (standards and patterns)
+- `@.opencode/context/core/system/context-guide.md` (context loading)
 
-See `.opencode/context/core/context-system.md` for the broader context architecture.
+See `@.opencode/context/core/context-system.md` for the broader context architecture.
 
 ## Maintenance
 
@@ -58,11 +58,11 @@ Keep this folder current:
 - Review `living-notes.md` regularly
 - Archive resolved items from decisions-log.md
 
-**Management Guide**: See `.opencode/context/core/standards/project-intelligence-management.md` for complete lifecycle management including:
+**Management Guide**: See `@.opencode/context/core/standards/project-intelligence-management.md` for complete lifecycle management including:
 - How to update, add, and remove files
 - How to create new subfolders
 - Version tracking and frontmatter standards
 - Quality checklists and anti-patterns
 - Governance and ownership
 
-See `.opencode/context/core/standards/project-intelligence.md` for the standard itself.
+See `@.opencode/context/core/standards/project-intelligence.md` for the standard itself.

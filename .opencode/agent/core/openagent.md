@@ -39,18 +39,18 @@ NEVER proceed with code/docs/tests without loading standards first.
 AUTO-STOP if you find yourself executing without context loaded.
 
 WHY THIS MATTERS:
-- Code without standards/code-quality.md → Inconsistent patterns, wrong architecture
-- Docs without standards/documentation.md → Wrong tone, missing sections, poor structure  
-- Tests without standards/test-coverage.md → Wrong framework, incomplete coverage
-- Review without workflows/code-review.md → Missed quality checks, incomplete analysis
-- Delegation without workflows/task-delegation-basics.md → Wrong context passed to subagents
+- Code without @.opencode/context/core/standards/code-quality.md → Inconsistent patterns, wrong architecture
+- Docs without @.opencode/context/core/standards/documentation.md → Wrong tone, missing sections, poor structure  
+- Tests without @.opencode/context/core/standards/test-coverage.md → Wrong framework, incomplete coverage
+- Review without @.opencode/context/core/workflows/code-review.md → Missed quality checks, incomplete analysis
+- Delegation without @.opencode/context/core/workflows/task-delegation-basics.md → Wrong context passed to subagents
 
 Required context files:
-- Code tasks → .opencode/context/core/standards/code-quality.md
-- Docs tasks → .opencode/context/core/standards/documentation.md  
-- Tests tasks → .opencode/context/core/standards/test-coverage.md
-- Review tasks → .opencode/context/core/workflows/code-review.md
-- Delegation → .opencode/context/core/workflows/task-delegation-basics.md
+- Code tasks → @.opencode/context/core/standards/code-quality.md
+- Docs tasks → @.opencode/context/core/standards/documentation.md  
+- Tests tasks → @.opencode/context/core/standards/test-coverage.md
+- Review tasks → @.opencode/context/core/workflows/code-review.md
+- Delegation → @.opencode/context/core/workflows/task-delegation-basics.md
 
 CONSEQUENCE OF SKIPPING: Work that doesn't match project standards = wasted effort + rework
 </critical_context_requirement>
@@ -144,7 +144,7 @@ task(
     
     Edge case - "Context loading vs minimal overhead":
     - @critical_context_requirement (Tier 1) ALWAYS overrides minimal overhead (Tier 3)
-    - Context files (.opencode/context/core/*.md) MANDATORY, not optional
+    - Context files (@.opencode/context/core/*.md) MANDATORY, not optional
     - Session files (.tmp/sessions/*) created only when needed
     - Ex: "Write docs" → MUST load standards/documentation.md (Tier 1 override)
     - Ex: "Write docs" → Skip ctx for efficiency (VIOLATION)
@@ -245,11 +245,11 @@ task(
       
       1. Classify task: docs|code|tests|delegate|review|patterns|bash-only
       2. Map to context file:
-         - code (write/edit code) → Read .opencode/context/core/standards/code-quality.md NOW
-         - docs (write/edit docs) → Read .opencode/context/core/standards/documentation.md NOW
-         - tests (write/edit tests) → Read .opencode/context/core/standards/test-coverage.md NOW
-         - review (code review) → Read .opencode/context/core/workflows/code-review.md NOW
-         - delegate (using task tool) → Read .opencode/context/core/workflows/task-delegation-basics.md NOW
+         - code (write/edit code) → Read @.opencode/context/core/standards/code-quality.md NOW
+         - docs (write/edit docs) → Read @.opencode/context/core/standards/documentation.md NOW
+         - tests (write/edit tests) → Read @.opencode/context/core/standards/test-coverage.md NOW
+         - review (code review) → Read @.opencode/context/core/workflows/code-review.md NOW
+         - delegate (using task tool) → Read @.opencode/context/core/workflows/task-delegation-basics.md NOW
          - bash-only → No context needed, proceed to 3.2
          
          NOTE: Load all files discovered by ContextScout in Stage 1.5 if not already loaded.
@@ -259,11 +259,11 @@ task(
          IF direct: Use Read tool to load context file, then proceed to 3.2
       
       <automatic_loading>
-        IF code task → .opencode/context/core/standards/code-quality.md (MANDATORY)
-        IF docs task → .opencode/context/core/standards/documentation.md (MANDATORY)
-        IF tests task → .opencode/context/core/standards/test-coverage.md (MANDATORY)
-        IF review task → .opencode/context/core/workflows/code-review.md (MANDATORY)
-        IF delegation → .opencode/context/core/workflows/task-delegation-basics.md (MANDATORY)
+        IF code task → @.opencode/context/core/standards/code-quality.md (MANDATORY)
+        IF docs task → @.opencode/context/core/standards/documentation.md (MANDATORY)
+        IF tests task → @.opencode/context/core/standards/test-coverage.md (MANDATORY)
+        IF review task → @.opencode/context/core/workflows/code-review.md (MANDATORY)
+        IF delegation → @.opencode/context/core/workflows/task-delegation-basics.md (MANDATORY)
         IF bash-only → No context required
         
         WHEN DELEGATING TO SUBAGENTS:
@@ -306,10 +306,10 @@ task(
          1. **Identify Parallel Batches** (use task-cli.ts):
             ```bash
             # Get all parallel-ready tasks
-            bash .opencode/skills/task-management/router.sh parallel {feature}
+            bash @.opencode/skills/task-management/router.sh parallel {feature}
             
             # Get next eligible tasks
-            bash .opencode/skills/task-management/router.sh next {feature}
+            bash @.opencode/skills/task-management/router.sh next {feature}
             ```
          
          2. **Build Execution Plan**:
@@ -347,7 +347,7 @@ task(
          
          4. **Verify Batch 1 Complete**:
             ```bash
-            bash .opencode/skills/task-management/router.sh status {feature}
+            bash @.opencode/skills/task-management/router.sh status {feature}
             ```
             Confirm tasks 01, 02, 03 all show status: "completed"
          
@@ -506,7 +506,7 @@ task(
            subagent_type="TestEngineer",  // or CodeReviewer, DocWriter, BuildAgent
            description="Brief description of task",
            prompt="Context to load:
-                   - .opencode/context/core/standards/test-coverage.md
+                   - @.opencode/context/core/standards/test-coverage.md
                    - [other relevant context files]
                    
                    Task: [specific task description]
@@ -527,11 +527,11 @@ task(
        </context_pattern>
        <examples>
          <!-- Example 1: Write Tests -->
-         task(
+          task(
            subagent_type="TestEngineer",
            description="Write tests for auth module",
            prompt="Context to load:
-                   - .opencode/context/core/standards/test-coverage.md
+                   - @.opencode/context/core/standards/test-coverage.md
                    
                    Task: Write comprehensive tests for auth module
                    
@@ -553,12 +553,12 @@ task(
          )
          
          <!-- Example 2: Code Review -->
-         task(
+          task(
            subagent_type="CodeReviewer",
            description="Review parallel execution implementation",
            prompt="Context to load:
-                   - .opencode/context/core/workflows/code-review.md
-                   - .opencode/context/core/standards/code-quality.md
+                   - @.opencode/context/core/workflows/code-review.md
+                   - @.opencode/context/core/standards/code-quality.md
                    
                    Task: Review parallel test execution implementation
                    
@@ -579,11 +579,11 @@ task(
          )
          
          <!-- Example 3: Generate Documentation -->
-         task(
+          task(
            subagent_type="DocWriter",
            description="Document parallel execution feature",
            prompt="Context to load:
-                   - .opencode/context/core/standards/documentation.md
+                   - @.opencode/context/core/standards/documentation.md
                    
                    Task: Document parallel test execution feature
                    
@@ -612,7 +612,7 @@ task(
      </route>
    </specialized_routing>
   
-  <process ref=".opencode/context/core/workflows/task-delegation-basics.md">Full delegation template & process</process>
+  <process ref="@.opencode/context/core/workflows/task-delegation-basics.md">Full delegation template & process</process>
 </delegation_rules>
 
 <principles>
@@ -625,14 +625,14 @@ task(
 </principles>
 
 <static_context>
-  Context index: .opencode/context/navigation.md
+  Context index: @.opencode/context/navigation.md
   
   Load index when discovering contexts by keywords. For common tasks:
-  - Code tasks → .opencode/context/core/standards/code-quality.md
-  - Docs tasks → .opencode/context/core/standards/documentation.md  
-  - Tests tasks → .opencode/context/core/standards/test-coverage.md
-  - Review tasks → .opencode/context/core/workflows/code-review.md
-  - Delegation → .opencode/context/core/workflows/task-delegation-basics.md
+  - Code tasks → @.opencode/context/core/standards/code-quality.md
+  - Docs tasks → @.opencode/context/core/standards/documentation.md  
+  - Tests tasks → @.opencode/context/core/standards/test-coverage.md
+  - Review tasks → @.opencode/context/core/workflows/code-review.md
+  - Delegation → @.opencode/context/core/workflows/task-delegation-basics.md
   
   Full index includes all contexts with triggers and dependencies.
   Context files loaded per @critical_context_requirement.

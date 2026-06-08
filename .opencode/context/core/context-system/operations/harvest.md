@@ -260,8 +260,8 @@ Choose [1/2/3] (default: 1): _
    - Deleted: .tmp/IMPLEMENTATION-NOTES.md (no valuable content)
 
 📊 Updated navigation maps:
-   - .opencode/context/core/navigation.md
-   - .opencode/context/development/navigation.md
+   - @.opencode/context/core/navigation.md
+   - @.opencode/context/development/navigation.md
 
 💾 Disk space freed: 6.8 KB
 ```

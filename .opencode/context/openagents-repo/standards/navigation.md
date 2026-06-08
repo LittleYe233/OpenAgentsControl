@@ -111,17 +111,17 @@ These fields are NOT valid in OpenCode frontmatter:
 
 ### Check YAML Syntax
 ```bash
-yq eval '.opencode/agent/category/agent.md' > /dev/null
+yq eval '@.opencode/agent/category/agent.md' > /dev/null
 ```
 
 ### Check for Duplicate Keys
 ```bash
-grep -A 50 "^---$" .opencode/agent/category/agent.md | grep -E "^[a-z_]+:" | sort | uniq -d
+grep -A 50 "^---$" @.opencode/agent/category/agent.md | grep -E "^[a-z_]+:" | sort | uniq -d
 ```
 
 ### List All Frontmatter Keys
 ```bash
-grep -A 50 "^---$" .opencode/agent/category/agent.md | grep -E "^[a-z_]+:" | cut -d: -f1
+grep -A 50 "^---$" @.opencode/agent/category/agent.md | grep -E "^[a-z_]+:" | cut -d: -f1
 ```
 
 Valid keys: `name`, `description`, `mode`, `temperature`, `model`, `maxSteps`, `disable`, `hidden`, `prompt`, `tools`, `permissions`, `skills`

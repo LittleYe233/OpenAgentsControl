@@ -129,9 +129,9 @@ tags:
 
 ## Related Files
 
-- **Testing subagents**: `.opencode/context/openagents-repo/guides/testing-subagents.md`
-- **Subagent invocation**: `.opencode/context/openagents-repo/guides/subagent-invocation.md`
-- **Agent concepts**: `.opencode/context/openagents-repo/core-concepts/agents.md`
+- **Testing subagents**: `@.opencode/context/openagents-repo/guides/testing-subagents.md`
+- **Subagent invocation**: `@.opencode/context/openagents-repo/guides/subagent-invocation.md`
+- **Agent concepts**: `@.opencode/context/openagents-repo/core-concepts/agents.md`
 
 ---
 

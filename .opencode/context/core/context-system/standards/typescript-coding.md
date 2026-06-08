@@ -562,7 +562,7 @@ describe('ContextResolver', () => {
 
     it('should resolve root context reference', async () => {
       const result = await resolver.resolve('{context.root}/core/standards/code-quality.md');
-      expect(result).toBe('.opencode/context/core/standards/code-quality.md');
+      expect(result).toBe('@.opencode/context/core/standards/code-quality.md');
     });
 
     it('should resolve tasks context reference', async () => {
@@ -994,5 +994,5 @@ export class ContextResolver {
 **Related Documents**:
 - Universal TypeScript standards: `core/standards/typescript.md`
 - OpenCode TypeScript standards: `openagents-repo/standards/opencode-typescript.md`
-- Context system guide: `.opencode/context/core/context-system/guides/creation.md`
-- Context structure: `.opencode/context/core/context-system/standards/structure.md`
+- Context system guide: `@.opencode/context/core/context-system/guides/creation.md`
+- Context structure: `@.opencode/context/core/context-system/standards/structure.md`

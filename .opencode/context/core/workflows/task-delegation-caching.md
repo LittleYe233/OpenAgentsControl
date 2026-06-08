@@ -37,7 +37,7 @@ Cache context when:
   "created_at": "2026-01-28T14:30:22Z",
   "cache": {
     "test-coverage.md": {
-      "source": ".opencode/context/core/standards/test-coverage.md",
+      "source": "@.opencode/context/core/standards/test-coverage.md",
       "cached_at": "2026-01-28T14:30:25Z",
       "used_by": ["subtask_01", "subtask_02"],
       "status": "valid"

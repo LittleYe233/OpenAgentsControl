@@ -61,7 +61,7 @@ Orchestrator → Agent: "Here's the entire session context with everything from 
     }
   },
   contextFiles: [
-    ".opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/code-quality.md",
     "(example: .opencode/context/security/auth-patterns.md)"
   ],
   referenceFiles: [
@@ -100,7 +100,7 @@ import { createContextIndex } from './context-index';
 
 const result = createContextIndex('auth-system', {
   contextFiles: [
-    '.opencode/context/core/standards/code-quality.md',
+    '@.opencode/context/core/standards/code-quality.md',
     '(example: .opencode/context/security/auth-patterns.md)'
   ],
   referenceFiles: [
@@ -158,7 +158,7 @@ const result = getContextForAgent('auth-system', 'StoryMapper');
     feature: "auth-system",
     agentType: "StoryMapper",
     contextFiles: [
-      "(example: .opencode/context/core/story-mapping/guide.md)"
+      "(example: @.opencode/context/core/story-mapping/guide.md)"
     ],
     referenceFiles: [],
     agentOutputs: [
@@ -218,7 +218,7 @@ Each agent type gets a minimal, focused context:
 ```typescript
 {
   contextFiles: [
-    "(example: .opencode/context/core/story-mapping/guide.md)"
+    "(example: @.opencode/context/core/story-mapping/guide.md)"
   ],
   referenceFiles: [],
   agentOutputs: [
@@ -240,7 +240,7 @@ Each agent type gets a minimal, focused context:
 ```typescript
 {
   contextFiles: [
-    "(example: .opencode/context/core/prioritization/scoring.md)"
+    "(example: @.opencode/context/core/prioritization/scoring.md)"
   ],
   referenceFiles: [],
   agentOutputs: [
@@ -261,8 +261,8 @@ Each agent type gets a minimal, focused context:
 ```typescript
 {
   contextFiles: [
-    ".opencode/context/core/task-management/navigation.md",
-    ".opencode/context/core/standards/code-quality.md"
+    "@.opencode/context/core/task-management/navigation.md",
+    "@.opencode/context/core/standards/code-quality.md"
   ],
   referenceFiles: [],
   agentOutputs: [
@@ -286,7 +286,7 @@ Each agent type gets a minimal, focused context:
 ```typescript
 {
   contextFiles: [
-    ".opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/code-quality.md",
     "(example: .opencode/context/security/auth-patterns.md)"
   ],
   referenceFiles: [],
@@ -313,7 +313,7 @@ import {
 // 1. Initialize context index
 createContextIndex('auth-system', {
   contextFiles: [
-    '.opencode/context/core/standards/code-quality.md',
+    '@.opencode/context/core/standards/code-quality.md',
     '(example: .opencode/context/security/auth-patterns.md)',
     '(example: .opencode/context/architecture/patterns.md)'
   ],
@@ -571,7 +571,7 @@ task(
 createContextIndex('auth-system', {
   contextFiles: [
     '(example: .opencode/context/security/auth-patterns.md)',
-    '.opencode/context/core/standards/code-quality.md'
+    '@.opencode/context/core/standards/code-quality.md'
   ]
 });
 
@@ -611,7 +611,7 @@ npx ts-node context-index.ts get-context auth-system StoryMapper
 # {
 #   "feature": "auth-system",
 #   "agentType": "StoryMapper",
-#   "contextFiles": ["(example: .opencode/context/core/story-mapping/guide.md)"],
+#   "contextFiles": ["(example: @.opencode/context/core/story-mapping/guide.md)"],
 #   "agentOutputs": [".tmp/architecture/auth-system/contexts.json"],
 #   "metadata": {"boundedContext":"authentication"}
 # }

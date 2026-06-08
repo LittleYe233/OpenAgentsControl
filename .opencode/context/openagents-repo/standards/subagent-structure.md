@@ -121,7 +121,7 @@ permissions:
 ## File Organization
 
 ```
-.opencode/agent/subagents/
+@.opencode/agent/subagents/
 ├── code/           # tester, reviewer, coder-agent, build-agent
 ├── core/           # task-manager, contextscout, documentation
 ├── system-builder/ # agent-generator, command-creator
@@ -175,9 +175,9 @@ permissions:
 ## Examples
 
 **See existing subagents**:
-- `.opencode/agent/subagents/code/tester.md` - Write-enabled with tests
-- `.opencode/agent/subagents/code/reviewer.md` - Read-only reviewer
-- `.opencode/agent/subagents/core/task-manager.md` - Restricted bash
+- `@.opencode/agent/subagents/code/tester.md` - Write-enabled with tests
+- `@.opencode/agent/subagents/code/reviewer.md` - Read-only reviewer
+- `@.opencode/agent/subagents/core/task-manager.md` - Restricted bash
 
 ---
 

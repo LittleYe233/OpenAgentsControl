@@ -45,7 +45,7 @@
 git checkout feature/oac-package-refactor
 
 # View full context
-cat .opencode/context/openagents-repo/features/oac-package-refactor.md
+cat @.opencode/context/openagents-repo/features/oac-package-refactor.md
 
 # View GitHub issue
 gh issue view 206

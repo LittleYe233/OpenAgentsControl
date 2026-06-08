@@ -101,7 +101,7 @@ These two fields serve fundamentally different purposes. **Never mix them.**
 **Wrong** ❌ — mixing standards and source files:
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md",
+  "@.opencode/context/core/standards/code-quality.md",
   "package.json",
   "src/existing-auth.ts"
 ]
@@ -110,8 +110,8 @@ These two fields serve fundamentally different purposes. **Never mix them.**
 **Right** ✅ — clean separation:
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md",
-  ".opencode/context/core/standards/security-patterns.md"
+  "@.opencode/context/core/standards/code-quality.md",
+  "@.opencode/context/core/standards/security-patterns.md"
 ],
 "reference_files": [
   "package.json",
@@ -132,8 +132,8 @@ These two fields serve fundamentally different purposes. **Never mix them.**
   "depends_on": ["01"],
   "parallel": false,
   "context_files": [
-    ".opencode/context/core/standards/code-quality.md",
-    ".opencode/context/core/standards/security-patterns.md"
+    "@.opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/security-patterns.md"
   ],
   "reference_files": [
     "src/auth/token-utils.ts"
@@ -174,7 +174,7 @@ Use `enhanced-task-schema.md` when you need:
 **Old format** (still valid):
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md"
+  "@.opencode/context/core/standards/code-quality.md"
 ]
 ```
 
@@ -182,7 +182,7 @@ Use `enhanced-task-schema.md` when you need:
 ```json
 "context_files": [
   {
-    "path": ".opencode/context/core/standards/code-quality.md",
+    "path": "@.opencode/context/core/standards/code-quality.md",
     "lines": "53-95",
     "reason": "Pure function patterns for service layer"
   }

@@ -51,7 +51,7 @@ async function ensureDirectoryExists(dirPath: string) {
 function getDateBasedPath(baseDir?: string): string {
   // Default to assets/images at repo root
   if (!baseDir) {
-    // Navigate from .opencode/tool/ to repo root, then to assets/images
+    // Navigate from @.opencode/tool/ to repo root, then to assets/images
     baseDir = resolve(process.cwd(), "../../assets/images")
   }
   const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD format

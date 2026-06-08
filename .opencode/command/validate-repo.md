@@ -247,7 +247,7 @@ Generated: 2025-11-19 14:30:00
 
 1. **Missing Context File**
    - Component: `context:advanced-patterns`
-   - Expected path: `.opencode/context/core/advanced-patterns.md`
+   - Expected path: `@.opencode/context/core/advanced-patterns.md`
    - Referenced in: developer, full, advanced profiles
    - Action: Create file or remove from registry
 
@@ -295,7 +295,7 @@ Generated: 2025-11-19 14:30:00
 ## 🔧 Recommended Actions
 
 ### High Priority (Errors)
-1. Create missing file: `.opencode/context/core/advanced-patterns.md`
+1. Create missing file: `@.opencode/context/core/advanced-patterns.md`
 2. Fix broken dependency in `opencoder`
 
 ### Medium Priority (Warnings)

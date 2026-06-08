@@ -502,7 +502,7 @@ Line 10`;
   describe("Integration with enhanced schema", () => {
     it("validates ContextFileReference with valid lines", () => {
       const ref = {
-        path: ".opencode/context/core/standards/code-quality.md",
+        path: "@.opencode/context/core/standards/code-quality.md",
         lines: "53-95",
         reason: "Pure function patterns"
       };
@@ -513,7 +513,7 @@ Line 10`;
 
     it("validates ContextFileReference without lines (entire file)", () => {
       const ref: { path: string; lines?: string; reason: string } = {
-        path: ".opencode/context/core/standards/code-quality.md",
+        path: "@.opencode/context/core/standards/code-quality.md",
         reason: "All coding standards"
       };
 
@@ -523,7 +523,7 @@ Line 10`;
 
     it("rejects ContextFileReference with invalid lines", () => {
       const ref = {
-        path: ".opencode/context/core/standards/code-quality.md",
+        path: "@.opencode/context/core/standards/code-quality.md",
         lines: "invalid-range",
         reason: "Test"
       };

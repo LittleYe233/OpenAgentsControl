@@ -12,15 +12,15 @@ This document shows a complete orchestrator workflow using the lightweight conte
 ### Step 1: Initialize Context Index
 
 ```typescript
-import { createContextIndex } from './.opencode/skill/task-management/scripts/context-index';
+import { createContextIndex } from './@.opencode/skill/task-management/scripts/context-index';
 
 // Create lightweight index with initial context
 const result = createContextIndex('auth-system', {
   contextFiles: [
-    '.opencode/context/core/standards/code-quality.md',
+    '@.opencode/context/core/standards/code-quality.md',
     '(example: (example: .opencode/context/security/auth-patterns.md))',
     '(example: (example: .opencode/context/architecture/ddd-patterns.md))',
-    '(example: (example: .opencode/context/core/story-mapping/guide.md))'
+    '(example: (example: @.opencode/context/core/story-mapping/guide.md))'
   ],
   referenceFiles: [
     'src/auth/old-auth.ts',
@@ -39,10 +39,10 @@ const result = createContextIndex('auth-system', {
   "updated": "2026-02-15T10:00:00Z",
   "agents": {},
   "contextFiles": [
-    ".opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/code-quality.md",
     "(example: (example: .opencode/context/security/auth-patterns.md))",
     "(example: (example: .opencode/context/architecture/ddd-patterns.md))",
-    "(example: (example: .opencode/context/core/story-mapping/guide.md))"
+    "(example: (example: @.opencode/context/core/story-mapping/guide.md))"
   ],
   "referenceFiles": [
     "src/auth/old-auth.ts",
@@ -58,7 +58,7 @@ const result = createContextIndex('auth-system', {
 ### Step 2: Get Context for ArchitectureAnalyzer
 
 ```typescript
-import { getContextForAgent } from './.opencode/skill/task-management/scripts/context-index';
+import { getContextForAgent } from './@.opencode/skill/task-management/scripts/context-index';
 
 const archContext = getContextForAgent('auth-system', 'ArchitectureAnalyzer');
 
@@ -113,7 +113,7 @@ task(
 ### Step 4: ArchitectureAnalyzer Completes → Update Index
 
 ```typescript
-import { addAgentOutput } from './.opencode/skill/task-management/scripts/context-index';
+import { addAgentOutput } from './@.opencode/skill/task-management/scripts/context-index';
 
 // Read ArchitectureAnalyzer output
 const archOutput = JSON.parse(
@@ -166,7 +166,7 @@ const storyContext = getContextForAgent('auth-system', 'StoryMapper');
   feature: "auth-system",
   agentType: "StoryMapper",
   contextFiles: [
-    "(example: .opencode/context/core/story-mapping/guide.md)"
+    "(example: @.opencode/context/core/story-mapping/guide.md)"
   ],
   referenceFiles: [],
   agentOutputs: [
@@ -319,7 +319,7 @@ const taskContext = getContextForAgent('auth-system', 'TaskManager');
   feature: "auth-system",
   agentType: "TaskManager",
   contextFiles: [
-    ".opencode/context/core/standards/code-quality.md"
+    "@.opencode/context/core/standards/code-quality.md"
   ],
   referenceFiles: [],
   agentOutputs: [
@@ -405,7 +405,7 @@ const coderContext = getContextForAgent('auth-system', 'CoderAgent');
   feature: "auth-system",
   agentType: "CoderAgent",
   contextFiles: [
-    ".opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/code-quality.md",
     "(example: .opencode/context/security/auth-patterns.md)"
   ],
   referenceFiles: [],
@@ -557,7 +557,7 @@ import {
   createContextIndex, 
   addAgentOutput, 
   getContextForAgent 
-} from './.opencode/skill/task-management/scripts/context-index';
+} from './@.opencode/skill/task-management/scripts/context-index';
 
 // 1. Initialize
 createContextIndex(feature, { contextFiles, referenceFiles });

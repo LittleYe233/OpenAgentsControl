@@ -354,7 +354,7 @@ export const AgentValidatorPlugin: Plugin = async ({ client, project, directory 
 
       // Analyze context file reads
       analyze_context_reads: tool({
-        description: "Show all context files that were read during the session (e.g., .opencode/agent/openagent.md)",
+        description: "Show all context files that were read during the session (e.g., @.opencode/agent/openagent.md)",
         args: {},
         async execute(args, context) {
           const { sessionID } = context

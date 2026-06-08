@@ -92,7 +92,7 @@ Windsurf: Basic allow/deny (ask → deny)
 
 | Tool | Primary Config | Context/Skills | Agents |
 |------|----------------|----------------|--------|
-| **OAC** | .opencode/agent/ | .opencode/context/ | .opencode/agent/*.md |
+| **OAC** | @.opencode/agent/ | .opencode/context/ | @.opencode/agent/*.md |
 | **Claude** | .claude/config.json | .claude/skills/ | .claude/agents/ |
 | **Cursor** | .cursorrules | (inline) | Single file only |
 | **Windsurf** | .windsurf/config.json | .windsurf/context/ | .windsurf/agents/ |

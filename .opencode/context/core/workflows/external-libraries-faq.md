@@ -150,7 +150,7 @@ Before implementing with external libraries:
 
 ## Supported Libraries
 
-**See**: `.opencode/context/core/standards/external-library-registry.md`
+**See**: `@.opencode/context/core/standards/external-library-registry.md`
 
 **Categories:** Database/ORM | Auth | Frontend | Infrastructure | UI | State | Validation | Testing
 
@@ -162,4 +162,4 @@ Not listed? ExternalScout can still fetch from official docs.
 
 - `external-libraries-workflow.md` - Core workflow
 - `external-libraries-scenarios.md` - Common scenarios
-- `.opencode/agent/subagents/core/externalscout.md` - ExternalScout agent
+- `@.opencode/agent/subagents/core/externalscout.md` - ExternalScout agent

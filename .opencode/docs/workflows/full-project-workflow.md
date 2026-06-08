@@ -837,9 +837,9 @@ task(
   "status": "active",
   "objective": "Implement core order placement flow with cart, inventory, payment, and confirmation",
   "context_files": [
-    ".opencode/context/core/standards/code-quality.md",
-    ".opencode/context/core/standards/security-patterns.md",
-    ".opencode/context/core/workflows/multi-stage-orchestration.md"
+    "@.opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/security-patterns.md",
+    "@.opencode/context/core/workflows/multi-stage-orchestration.md"
   ],
   "reference_files": [
     "src/api/base.controller.ts",
@@ -920,7 +920,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "24-50",
       "reason": "Modular design and component structure patterns"
     }
@@ -958,7 +958,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-95",
       "reason": "Pure function and immutability patterns"
     }
@@ -1011,12 +1011,12 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-72",
       "reason": "Pure function patterns for cart operations"
     },
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "64-72",
       "reason": "Immutability patterns for cart state"
     }
@@ -1053,12 +1053,12 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-72",
       "reason": "Pure function patterns"
     },
     {
-      "path": ".opencode/context/core/standards/security-patterns.md",
+      "path": "@.opencode/context/core/standards/security-patterns.md",
       "lines": "80-120",
       "reason": "Transaction handling and race condition prevention"
     }
@@ -1103,7 +1103,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/security-patterns.md",
+      "path": "@.opencode/context/core/standards/security-patterns.md",
       "lines": "40-80",
       "reason": "API key management and secure payment handling"
     }
@@ -1155,7 +1155,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "106-124",
       "reason": "Error handling patterns for external API calls"
     }
@@ -1192,7 +1192,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "127-142",
       "reason": "Dependency injection patterns"
     }
@@ -1240,7 +1240,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "106-124",
       "reason": "Error handling and validation patterns"
     }
@@ -1279,7 +1279,7 @@ task(
   "suggested_agent": "CoderAgent",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "106-124",
       "reason": "Error handling for async operations"
     }
@@ -1407,7 +1407,7 @@ task(
 **CLI Validation**:
 ```bash
 npx ts-node --compiler-options '{"module":"commonjs"}' \
-  .opencode/skill/task-management/scripts/task-cli.ts \
+  @.opencode/skill/task-management/scripts/task-cli.ts \
   validate order-management-mvp
 
 # Output:
@@ -1780,7 +1780,7 @@ security:
 ```bash
 # Identify parallel batches
 npx ts-node --compiler-options '{"module":"commonjs"}' \
-  .opencode/skill/task-management/scripts/task-cli.ts \
+  @.opencode/skill/task-management/scripts/task-cli.ts \
   parallel order-management-mvp
 
 # Output:
@@ -1797,7 +1797,7 @@ npx ts-node --compiler-options '{"module":"commonjs"}' \
 **BatchExecutor delegates**: Task 01 to CoderAgent
 
 **CoderAgent workflow**:
-1. Loads context from `.opencode/context/core/standards/code-quality.md` (lines 24-50)
+1. Loads context from `@.opencode/context/core/standards/code-quality.md` (lines 24-50)
 2. Reads reference file `package.json`
 3. Implements deliverables:
    - Creates modular directory structure
@@ -1811,7 +1811,7 @@ npx ts-node --compiler-options '{"module":"commonjs"}' \
    - ✅ All acceptance criteria met
 5. Marks task complete:
    ```bash
-   bash .opencode/skill/task-management/router.sh complete \
+   bash @.opencode/skill/task-management/router.sh complete \
      order-management-mvp 01 "Project structure and dependencies configured"
    ```
 
@@ -1906,7 +1906,7 @@ npx ts-node --compiler-options '{"module":"commonjs"}' \
 **Final Status**:
 ```bash
 npx ts-node --compiler-options '{"module":"commonjs"}' \
-  .opencode/skill/task-management/scripts/task-cli.ts \
+  @.opencode/skill/task-management/scripts/task-cli.ts \
   status order-management-mvp
 
 # Output:
@@ -2090,7 +2090,7 @@ None
 ## Action Items
 
 1. **Update Standards**
-   - Document parallel execution patterns in `.opencode/context/core/workflows/`
+   - Document parallel execution patterns in `@.opencode/context/core/workflows/`
    - Add contract-first design guide
    - Create ADR template for future features
 
@@ -2119,7 +2119,7 @@ The Multi-Stage Orchestration Workflow successfully delivered the Order Manageme
 
 ### Updated Standards
 
-**File**: `.opencode/context/core/workflows/contract-first-design.md`
+**File**: `@.opencode/context/core/workflows/contract-first-design.md`
 
 ```markdown
 # Contract-First Design Pattern
@@ -2226,28 +2226,28 @@ See: `.opencode/docs/workflows/full-project-workflow.md` (Stage 5)
 **Documentation**:
 - `.tmp/validation/order-management-mvp-report.md`
 - `docs/retrospectives/order-management-mvp.md`
-- `.opencode/context/core/workflows/contract-first-design.md`
+- `@.opencode/context/core/workflows/contract-first-design.md`
 
 ### CLI Commands Used
 
 ```bash
 # Stage 4: Task Breakdown
 npx ts-node --compiler-options '{"module":"commonjs"}' \
-  .opencode/skill/task-management/scripts/task-cli.ts \
+  @.opencode/skill/task-management/scripts/task-cli.ts \
   validate order-management-mvp
 
 # Stage 6: Parallel Execution
 npx ts-node --compiler-options '{"module":"commonjs"}' \
-  .opencode/skill/task-management/scripts/task-cli.ts \
+  @.opencode/skill/task-management/scripts/task-cli.ts \
   parallel order-management-mvp
 
 # Stage 6: Mark Task Complete (per task)
-bash .opencode/skill/task-management/router.sh complete \
+bash @.opencode/skill/task-management/router.sh complete \
   order-management-mvp 01 "Project structure and dependencies configured"
 
 # Stage 6: Check Status
 npx ts-node --compiler-options '{"module":"commonjs"}' \
-  .opencode/skill/task-management/scripts/task-cli.ts \
+  @.opencode/skill/task-management/scripts/task-cli.ts \
   status order-management-mvp
 
 # Stage 7: Run Tests

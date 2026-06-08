@@ -83,8 +83,8 @@ This guide helps you migrate existing task.json and subtask_NN.json files from t
   "depends_on": ["01"],
   "parallel": false,
   "context_files": [
-    ".opencode/context/core/standards/code-quality.md",
-    ".opencode/context/core/standards/security-patterns.md"
+    "@.opencode/context/core/standards/code-quality.md",
+    "@.opencode/context/core/standards/security-patterns.md"
   ],
   "reference_files": [
     "src/auth/token-utils.ts"
@@ -110,12 +110,12 @@ This guide helps you migrate existing task.json and subtask_NN.json files from t
   "parallel": false,
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-72",
       "reason": "Pure function patterns for service layer"
     },
     {
-      "path": ".opencode/context/core/standards/security-patterns.md",
+      "path": "@.opencode/context/core/standards/security-patterns.md",
       "lines": "120-145",
       "reason": "JWT signing and validation rules"
     }
@@ -154,7 +154,7 @@ This guide helps you migrate existing task.json and subtask_NN.json files from t
   "status": "active",
   "objective": "Implement JWT-based authentication",
   "context_files": [
-    ".opencode/context/core/standards/code-quality.md"
+    "@.opencode/context/core/standards/code-quality.md"
   ],
   "exit_criteria": [
     "All tests passing"
@@ -174,7 +174,7 @@ This guide helps you migrate existing task.json and subtask_NN.json files from t
   "objective": "Implement JWT-based authentication",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "53-95",
       "reason": "Pure function patterns"
     }
@@ -323,7 +323,7 @@ This guide helps you migrate existing task.json and subtask_NN.json files from t
 **Example**:
 ```json
 {
-  "path": ".opencode/context/core/standards/code-quality.md",
+  "path": "@.opencode/context/core/standards/code-quality.md",
   "lines": "53-95",
   "reason": "Pure function patterns"
 }
@@ -458,22 +458,22 @@ Use the provided migration script to automatically upgrade task files:
 
 ```bash
 # Migrate a single task
-npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts \
+npx ts-node @.opencode/skill/task-management/scripts/migrate-schema.ts \
   --task multi-stage-orchestration-workflow
 
 # Migrate all tasks
-npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts --all
+npx ts-node @.opencode/skill/task-management/scripts/migrate-schema.ts --all
 
 # Dry run (preview changes without writing)
-npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts \
+npx ts-node @.opencode/skill/task-management/scripts/migrate-schema.ts \
   --task auth-system --dry-run
 
 # Add line-number precision only
-npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts \
+npx ts-node @.opencode/skill/task-management/scripts/migrate-schema.ts \
   --task auth-system --lines-only
 
 # Add domain modeling fields
-npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts \
+npx ts-node @.opencode/skill/task-management/scripts/migrate-schema.ts \
   --task auth-system --add-domain \
   --bounded-context authentication \
   --module @app/auth
@@ -505,7 +505,7 @@ npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts \
 ```json
 // This still works perfectly
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md"
+  "@.opencode/context/core/standards/code-quality.md"
 ]
 ```
 
@@ -516,9 +516,9 @@ npx ts-node .opencode/skill/task-management/scripts/migrate-schema.ts \
 **Example**:
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md",
+  "@.opencode/context/core/standards/code-quality.md",
   {
-    "path": ".opencode/context/core/standards/security-patterns.md",
+    "path": "@.opencode/context/core/standards/security-patterns.md",
     "lines": "120-145",
     "reason": "JWT validation"
   }
@@ -560,7 +560,7 @@ function loadContextFile(ref: string | ContextFileReference): string {
 ```json
 "context_files": [
   {
-    ".opencode/context/core/standards/code-quality.md"
+    "@.opencode/context/core/standards/code-quality.md"
   }
 ]
 ```
@@ -569,7 +569,7 @@ function loadContextFile(ref: string | ContextFileReference): string {
 ```json
 "context_files": [
   {
-    "path": ".opencode/context/core/standards/code-quality.md",
+    "path": "@.opencode/context/core/standards/code-quality.md",
     "lines": "53-95",
     "reason": "Pure function patterns"
   }
@@ -619,7 +619,7 @@ function loadContextFile(ref: string | ContextFileReference): string {
 **Wrong** ❌:
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md",
+  "@.opencode/context/core/standards/code-quality.md",
   "src/auth/service.ts"  // Source file in context_files!
 ]
 ```
@@ -627,7 +627,7 @@ function loadContextFile(ref: string | ContextFileReference): string {
 **Right** ✅:
 ```json
 "context_files": [
-  ".opencode/context/core/standards/code-quality.md"
+  "@.opencode/context/core/standards/code-quality.md"
 ],
 "reference_files": [
   "src/auth/service.ts"
@@ -652,7 +652,7 @@ function loadContextFile(ref: string | ContextFileReference): string {
 **Right** ✅:
 ```json
 {
-  "path": ".opencode/context/core/standards/code-quality.md",
+  "path": "@.opencode/context/core/standards/code-quality.md",
   "lines": "10-50",
   "reason": "Pure functions"
 }
@@ -671,7 +671,7 @@ function loadContextFile(ref: string | ContextFileReference): string {
   "title": "Fix typo in README",
   "context_files": [
     {
-      "path": ".opencode/context/core/standards/code-quality.md",
+      "path": "@.opencode/context/core/standards/code-quality.md",
       "lines": "1-165",
       "reason": "All standards"
     }
@@ -722,9 +722,9 @@ function loadContextFile(ref: string | ContextFileReference): string {
 **Commands**:
 ```bash
 # Works with both old and new formats
-npx ts-node .opencode/skill/task-management/scripts/task-cli.ts status
-npx ts-node .opencode/skill/task-management/scripts/task-cli.ts next auth-system
-npx ts-node .opencode/skill/task-management/scripts/task-cli.ts validate auth-system
+npx ts-node @.opencode/skill/task-management/scripts/task-cli.ts status
+npx ts-node @.opencode/skill/task-management/scripts/task-cli.ts next auth-system
+npx ts-node @.opencode/skill/task-management/scripts/task-cli.ts validate auth-system
 ```
 
 ### Orchestrator
@@ -829,11 +829,11 @@ npx ts-node .opencode/skill/task-management/scripts/task-cli.ts validate auth-sy
 
 ## Related Documentation
 
-- **Base Schema**: `.opencode/context/core/task-management/standards/task-schema.md`
-- **Enhanced Schema**: `.opencode/context/core/task-management/standards/enhanced-task-schema.md`
-- **Task Splitting Guide**: `.opencode/context/core/task-management/guides/splitting-tasks.md`
-- **Task Management Guide**: `.opencode/context/core/task-management/guides/managing-tasks.md`
-- **CLI Reference**: `.opencode/context/core/task-management/lookup/task-commands.md`
+- **Base Schema**: `@.opencode/context/core/task-management/standards/task-schema.md`
+- **Enhanced Schema**: `@.opencode/context/core/task-management/standards/enhanced-task-schema.md`
+- **Task Splitting Guide**: `@.opencode/context/core/task-management/guides/splitting-tasks.md`
+- **Task Management Guide**: `@.opencode/context/core/task-management/guides/managing-tasks.md`
+- **CLI Reference**: `@.opencode/context/core/task-management/lookup/task-commands.md`
 
 ---
 

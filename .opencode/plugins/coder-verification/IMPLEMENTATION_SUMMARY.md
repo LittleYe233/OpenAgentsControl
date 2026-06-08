@@ -9,7 +9,7 @@ The CoderAgent Assistant Plugin has been successfully created and is ready to us
 ## 📁 Files Created
 
 ```
-.opencode/plugins/coder-verification/
+@.opencode/plugins/coder-verification/
 ├── plugin.json           # Plugin manifest (207 bytes)
 ├── index.ts              # Main plugin logic (2.8 KB)  
 └── README.md             # Documentation (938 bytes)
@@ -92,7 +92,7 @@ The plugin checks CoderAgent output for:
 
 The plugin is already in place at:
 ```
-.opencode/plugins/coder-verification/
+@.opencode/plugins/coder-verification/
 ```
 
 ### To Activate
@@ -140,11 +140,11 @@ All required agents are present and valid:
 
 | Agent | File | Status |
 |-------|------|--------|
-| **TaskManager** | `.opencode/agent/subagents/core/task-manager.md` | ✅ Valid |
-| **CoderAgent** | `.opencode/agent/subagents/code/coder-agent.md` | ✅ Valid |
-| **BatchExecutor** | `.opencode/agent/subagents/core/batch-executor.md` | ✅ Valid |
-| **ContextScout** | `.opencode/agent/subagents/core/contextscout.md` | ✅ Valid |
-| **ExternalScout** | `.opencode/agent/subagents/core/externalscout.md` | ✅ Valid |
+| **TaskManager** | `@.opencode/agent/subagents/core/task-manager.md` | ✅ Valid |
+| **CoderAgent** | `@.opencode/agent/subagents/code/coder-agent.md` | ✅ Valid |
+| **BatchExecutor** | `@.opencode/agent/subagents/core/batch-executor.md` | ✅ Valid |
+| **ContextScout** | `@.opencode/agent/subagents/core/contextscout.md` | ✅ Valid |
+| **ExternalScout** | `@.opencode/agent/subagents/core/externalscout.md` | ✅ Valid |
 
 ### Total Agents Found: 20
 
@@ -230,7 +230,7 @@ The session `ses_3da57e5cdffe5u3zhBoacHEbMG` was from before the plugin was inst
 
 The plugin files are now in:
 ```
-.opencode/plugins/coder-verification/
+@.opencode/plugins/coder-verification/
 ```
 
 These are project-level plugins and will persist with the repository.

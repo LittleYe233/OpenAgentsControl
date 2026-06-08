@@ -1158,8 +1158,7 @@ perform_installation() {
                     # Transform paths for global installation
                     if [[ "$INSTALL_DIR" != ".opencode" ]] && [[ "$INSTALL_DIR" != *"/.opencode" ]]; then
                         local expanded_path="${INSTALL_DIR/#\~/$HOME}"
-                        sed -i.bak -e "s|@\.opencode/context/|@${expanded_path}/context/|g" \
-                                   -e "s|\.opencode/context|${expanded_path}/context|g" "$dest" 2>/dev/null || true
+                        sed -i.bak -e "s|@\.opencode/|@${expanded_path}/|g" "$dest" 2>/dev/null || true
                         rm -f "${dest}.bak" 2>/dev/null || true
                     fi
                     component_installed=$((component_installed + 1))
@@ -1206,8 +1205,7 @@ perform_installation() {
                     # Expand tilde and get absolute path for transformation
                     local expanded_path="${INSTALL_DIR/#\~/$HOME}"
                     # Transform @.opencode/context/ references to actual install path
-                    sed -i.bak -e "s|@\.opencode/context/|@${expanded_path}/context/|g" \
-                               -e "s|\.opencode/context|${expanded_path}/context|g" "$dest" 2>/dev/null || true
+                    sed -i.bak -e "s|@\.opencode/|@${expanded_path}/|g" "$dest" 2>/dev/null || true
                     rm -f "${dest}.bak" 2>/dev/null || true
                 fi
                 

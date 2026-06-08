@@ -68,14 +68,14 @@ opencode-agents/
 
 | Component | Location |
 |-----------|----------|
-| **Core agents** | `.opencode/agent/core/` |
-| **Category agents** | `.opencode/agent/{category}/` |
-| **Subagents** | `.opencode/agent/subagents/` |
-| **Commands** | `.opencode/command/` |
+| **Core agents** | `@.opencode/agent/core/` |
+| **Category agents** | `@.opencode/agent/{category}/` |
+| **Subagents** | `@.opencode/agent/subagents/` |
+| **Commands** | `@.opencode/command/` |
 | **Context files** | `.opencode/context/` |
 | **Prompt variants** | `.opencode/prompts/{category}/{agent}/` |
-| **Tools** | `.opencode/tool/` |
-| **Plugins** | `.opencode/plugin/` |
+| **Tools** | `@.opencode/tool/` |
+| **Plugins** | `@.opencode/plugin/` |
 | **Agent tests** | `evals/agents/{category}/{agent}/` |
 | **Eval framework** | `evals/framework/src/` |
 | **Registry scripts** | `scripts/registry/` |
@@ -91,10 +91,10 @@ opencode-agents/
 
 | What | Where |
 |------|-------|
-| **New core agent** | `.opencode/agent/core/{name}.md` |
-| **New category agent** | `.opencode/agent/{category}/{name}.md` |
-| **New subagent** | `.opencode/agent/subagents/{category}/{name}.md` |
-| **New command** | `.opencode/command/{name}.md` |
+| **New core agent** | `@.opencode/agent/core/{name}.md` |
+| **New category agent** | `@.opencode/agent/{category}/{name}.md` |
+| **New subagent** | `@.opencode/agent/subagents/{category}/{name}.md` |
+| **New command** | `@.opencode/command/{name}.md` |
 | **New context** | `.opencode/context/{category}/{name}.md` |
 | **Agent tests** | `evals/agents/{category}/{agent}/tests/` |
 | **Test config** | `evals/agents/{category}/{agent}/config/config.yaml` |
@@ -120,44 +120,44 @@ README.md                            # Main documentation
 ### Core Agents
 
 ```
-.opencode/agent/core/openagent.md
-.opencode/agent/core/opencoder.md
-.opencode/agent/meta/system-builder.md
+@.opencode/agent/core/openagent.md
+@.opencode/agent/core/opencoder.md
+@.opencode/agent/meta/system-builder.md
 ```
 
 ### Development Agents
 
 ```
-.opencode/agent/subagents/development/frontend-specialist.md
-.opencode/agent/subagents/development/devops-specialist.md
+@.opencode/agent/subagents/development/frontend-specialist.md
+@.opencode/agent/subagents/development/devops-specialist.md
 ```
 
 ### Content Agents
 
 ```
-.opencode/agent/content/copywriter.md
-.opencode/agent/content/technical-writer.md
+@.opencode/agent/content/copywriter.md
+@.opencode/agent/content/technical-writer.md
 ```
 
 ### Key Subagents
 
 ```
-.opencode/agent/subagents/code/test-engineer.md
-.opencode/agent/subagents/code/reviewer.md
-.opencode/agent/subagents/code/coder-agent.md
-.opencode/agent/subagents/core/task-manager.md
-.opencode/agent/subagents/core/documentation.md
+@.opencode/agent/subagents/code/test-engineer.md
+@.opencode/agent/subagents/code/reviewer.md
+@.opencode/agent/subagents/code/coder-agent.md
+@.opencode/agent/subagents/core/task-manager.md
+@.opencode/agent/subagents/core/documentation.md
 ```
 
 ### Core Context
 
 ```
-.opencode/context/core/standards/code-quality.md
-.opencode/context/core/standards/documentation.md
-.opencode/context/core/standards/test-coverage.md
-.opencode/context/core/standards/security-patterns.md
-.opencode/context/core/workflows/task-delegation-basics.md
-.opencode/context/core/workflows/code-review.md
+@.opencode/context/core/standards/code-quality.md
+@.opencode/context/core/standards/documentation.md
+@.opencode/context/core/standards/test-coverage.md
+@.opencode/context/core/standards/security-patterns.md
+@.opencode/context/core/workflows/task-delegation-basics.md
+@.opencode/context/core/workflows/code-review.md
 ```
 
 ### Registry Scripts
@@ -193,12 +193,12 @@ evals/framework/src/types/            # TypeScript types
 ### Agents
 
 ```
-.opencode/agent/{category}/{agent-name}.md
+@.opencode/agent/{category}/{agent-name}.md
 ```
 
 **Examples**:
-- `.opencode/agent/subagents/development/frontend-specialist.md`
-- `.opencode/agent/subagents/code/test-engineer.md`
+- `@.opencode/agent/subagents/development/frontend-specialist.md`
+- `@.opencode/agent/subagents/code/test-engineer.md`
 
 ### Context
 
@@ -207,9 +207,9 @@ evals/framework/src/types/            # TypeScript types
 ```
 
 **Examples**:
-- `.opencode/context/core/standards/code-quality.md`
-- `.opencode/context/ui/web/react-patterns.md`
-- `.opencode/context/content-creation/principles/copywriting-frameworks.md`
+- `@.opencode/context/core/standards/code-quality.md`
+- `@.opencode/context/ui/web/react-patterns.md`
+- `@.opencode/context/content-creation/principles/copywriting-frameworks.md`
 
 ### Tests
 
@@ -259,13 +259,13 @@ scripts/{purpose}/{action}-{target}.sh
 
 ```bash
 # By name
-find .opencode/agent -name "{agent-name}.md"
+find @.opencode/agent -name "{agent-name}.md"
 
 # By category
-ls .opencode/agent/{category}/
+ls @.opencode/agent/{category}/
 
 # All agents
-find .opencode/agent -name "*.md" -not -path "*/subagents/*"
+find @.opencode/agent -name "*.md" -not -path "*/subagents/*"
 ```
 
 ### Find Test File

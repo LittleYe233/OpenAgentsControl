@@ -96,11 +96,11 @@ Agent: [Exports to .tmp/validation-{id}.md]
 
 ## Installation
 
-The plugin auto-loads from `.opencode/plugins/` when OpenCode starts.
+The plugin auto-loads from `@.opencode/plugins/` when OpenCode starts.
 
 **Install dependencies:**
 ```bash
-cd .opencode/plugins
+cd @.opencode/plugins
 npm install
 # or
 bun install

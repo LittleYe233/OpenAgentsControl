@@ -276,14 +276,14 @@ describe("Enhanced Schema Validation", () => {
   // ==========================================================================
   describe("ContextFileReference validation", () => {
     it("validates legacy string format", () => {
-      const result = validateContextFileReference(".opencode/context/core/standards/code-quality.md");
+      const result = validateContextFileReference("@.opencode/context/core/standards/code-quality.md");
       expect(result.valid).toBe(true);
       expect(result.errors).toHaveLength(0);
     });
 
     it("validates new format with path only", () => {
       const ref: ContextFileReference = {
-        path: ".opencode/context/core/standards/code-quality.md"
+        path: "@.opencode/context/core/standards/code-quality.md"
       };
       const result = validateContextFileReference(ref);
       expect(result.valid).toBe(true);
@@ -292,7 +292,7 @@ describe("Enhanced Schema Validation", () => {
 
     it("validates new format with single line range", () => {
       const ref: ContextFileReference = {
-        path: ".opencode/context/core/standards/code-quality.md",
+        path: "@.opencode/context/core/standards/code-quality.md",
         lines: "10-50",
         reason: "Pure function patterns"
       };
@@ -303,7 +303,7 @@ describe("Enhanced Schema Validation", () => {
 
     it("validates new format with multiple line ranges", () => {
       const ref: ContextFileReference = {
-        path: ".opencode/context/core/standards/security-patterns.md",
+        path: "@.opencode/context/core/standards/security-patterns.md",
         lines: "1-25,120-145,200-220",
         reason: "JWT validation and token refresh patterns"
       };
@@ -314,7 +314,7 @@ describe("Enhanced Schema Validation", () => {
 
     it("rejects invalid line range format", () => {
       const ref: ContextFileReference = {
-        path: ".opencode/context/core/standards/code-quality.md",
+        path: "@.opencode/context/core/standards/code-quality.md",
         lines: "invalid-range"
       };
       const result = validateContextFileReference(ref);
@@ -324,7 +324,7 @@ describe("Enhanced Schema Validation", () => {
 
     it("rejects reason longer than 200 characters", () => {
       const ref: ContextFileReference = {
-        path: ".opencode/context/core/standards/code-quality.md",
+        path: "@.opencode/context/core/standards/code-quality.md",
         lines: "10-50",
         reason: "a".repeat(201)
       };
@@ -915,9 +915,9 @@ describe("Enhanced Schema Validation", () => {
         objective: 'Test mixed formats',
         created_at: '2026-02-14T00:00:00Z',
         context_files: [
-          '.opencode/context/core/standards/code-quality.md',
+          '@.opencode/context/core/standards/code-quality.md',
           {
-            path: '.opencode/context/core/standards/security-patterns.md',
+            path: '@.opencode/context/core/standards/security-patterns.md',
             lines: '120-145',
             reason: 'JWT validation'
           }
@@ -1020,11 +1020,11 @@ describe("Enhanced Schema Validation", () => {
         objective: 'Implement JWT-based authentication',
         context_files: [
           {
-            path: '.opencode/context/core/standards/code-quality.md',
+            path: '@.opencode/context/core/standards/code-quality.md',
             lines: '53-95',
             reason: 'Pure function patterns'
           },
-          '.opencode/context/core/standards/security-patterns.md'
+          '@.opencode/context/core/standards/security-patterns.md'
         ],
         reference_files: [
           {
@@ -1136,7 +1136,7 @@ describe("Enhanced Schema Validation", () => {
         parallel: false,
         context_files: [
           {
-            path: '.opencode/context/core/standards/code-quality.md',
+            path: '@.opencode/context/core/standards/code-quality.md',
             lines: '53-72',
             reason: 'Pure function patterns'
           }

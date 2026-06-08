@@ -103,7 +103,7 @@ dependencies: [subagent:coder-agent, context:core/standards/code]
 
 ### Component-Specific Examples
 
-**Command** (`.opencode/command/your-command.md`):
+**Command** (`@.opencode/command/your-command.md`):
 ```yaml
 ---
 description: Brief description of what this command does
@@ -117,7 +117,7 @@ dependencies:
 ---
 ```
 
-**Subagent** (`.opencode/agent/subagents/category/your-agent.md`):
+**Subagent** (`@.opencode/agent/subagents/category/your-agent.md`):
 ```yaml
 ---
 id: your-agent
@@ -193,7 +193,7 @@ Only edit `registry.json` manually if auto-detect doesn't work.
   "id": "agent-name",
   "name": "Agent Name",
   "type": "agent",
-  "path": ".opencode/agent/category/agent-name.md",
+  "path": "@.opencode/agent/category/agent-name.md",
   "description": "Brief description",
   "category": "category",
   "tags": ["tag1", "tag2"],
@@ -224,7 +224,7 @@ Only edit `registry.json` manually if auto-detect doesn't work.
 
 ```bash
 # Example errors
-ERROR: Path does not exist: (example: .opencode/agent/core/missing.md)
+ERROR: Path does not exist: (example: @.opencode/agent/core/missing.md)
 ERROR: Duplicate ID: frontend-specialist
 ERROR: Invalid category: invalid-category
 ERROR: Missing dependency: subagent:nonexistent
@@ -279,8 +279,8 @@ cat registry.json | jq '.components.agents[] | select(.id == "your-agent")'
 **Example**: Adding a new command with tags/dependencies:
 
 ```bash
-# 1. Create .opencode/command/my-command.md with frontmatter:
-cat > .opencode/command/my-command.md << 'EOF'
+# 1. Create @.opencode/command/my-command.md with frontmatter:
+cat > @.opencode/command/my-command.md << 'EOF'
 ---
 description: My custom command description
 tags: [automation, workflow]
@@ -315,7 +315,7 @@ EOF
 **Example**: Adding tags to existing component:
 
 ```bash
-# 1. Edit .opencode/command/existing-command.md frontmatter:
+# 1. Edit @.opencode/command/existing-command.md frontmatter:
 # Add or update:
 #   tags: [new-tag, another-tag]
 #   dependencies: [subagent:new-dependency]
@@ -463,7 +463,7 @@ Currently, aliases must be added **manually** to `registry.json` (auto-detect do
   "id": "session-management",
   "name": "Session Management",
   "type": "context",
-  "path": ".opencode/context/core/workflows/session-management.md",
+  "path": "@.opencode/context/core/workflows/session-management.md",
   "aliases": [
     "workflows-sessions",
     "sessions"
