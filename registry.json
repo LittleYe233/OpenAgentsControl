@@ -904,6 +904,22 @@
         "category": "standard"
       },
       {
+        "id": "platform-compatibility",
+        "name": "Platform Compatibility Standards",
+        "type": "context",
+        "path": ".opencode/context/core/standards/platform-compatibility.md",
+        "description": "Cross-platform compatibility: Windows path conversion, PowerShell command substitution, WSL integration",
+        "tags": [
+          "standards",
+          "platform",
+          "windows",
+          "wsl",
+          "compatibility"
+        ],
+        "dependencies": [],
+        "category": "standard"
+      },
+      {
         "id": "workflows-review",
         "name": "Code Review Workflow",
         "type": "context",

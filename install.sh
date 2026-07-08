@@ -80,6 +80,7 @@ PROFILE=""
 NON_INTERACTIVE=false
 LOCAL_MODE=false
 CUSTOM_INSTALL_DIR=""  # Set via --install-dir argument
+WSL_MODE=false          # Set via --wsl argument
 
 #############################################################################
 # Utility Functions
@@ -1242,6 +1243,25 @@ perform_installation() {
     echo -e "  Installed: ${GREEN}${installed}${NC}"
     [ $skipped -gt 0 ] && echo -e "  Skipped: ${CYAN}${skipped}${NC}"
     [ $failed -gt 0 ] && echo -e "  Failed: ${RED}${failed}${NC}"
+
+    # Post-install: if WSL mode, update agent file to reference platform compatibility
+    if [ "$WSL_MODE" = true ]; then
+        local agent_file="${INSTALL_DIR}/agent/core/openagent.md"
+        if [ -f "$agent_file" ]; then
+            local ref_line="- Platform compatibility → @.opencode/context/core/standards/platform-compatibility.md (MANDATORY for Windows)"
+            if ! grep -q "platform-compatibility" "$agent_file"; then
+                # Insert reference into the Required context files section
+                # Look for the existing required files list and add after it
+                sed -i.bak \
+                    -e "/^- Delegation →.*task-delegation-basics.md/a\\${ref_line}" \
+                    "$agent_file"
+                rm -f "${agent_file}.bak"
+                print_success "Added platform compatibility reference to agent file"
+            else
+                print_info "Platform compatibility already referenced in agent file"
+            fi
+        fi
+    fi
     
     show_post_install
 }
@@ -1401,6 +1421,10 @@ main() {
                 LOCAL_MODE=true
                 shift
                 ;;
+            --wsl)
+                WSL_MODE=true
+                shift
+                ;;
             list|--list)
                 check_dependencies
                 fetch_registry
@@ -1422,6 +1446,8 @@ main() {
                 echo -e "${BOLD}Options:${NC}"
                 echo "  --local                   Fetch components from local directory"
                 echo "                            (default if registry.json exists)"
+                echo "  --wsl                     Enable WSL/Windows compatibility mode"
+                echo "                            (installs platform-compatibility context)"
                 echo "  --install-dir PATH        Custom installation directory"
                 echo "                            (default: .opencode)"
                 echo "  list, --list              List all available components"
@@ -1444,6 +1470,9 @@ main() {
                 echo ""
                 echo -e "  ${CYAN}# Install to global location (Windows Git Bash)${NC}"
                 echo "  $0 developer --install-dir ~/.config/opencode"
+                echo ""
+                echo -e "  ${CYAN}# Install to WSL global location (Windows-compatible)${NC}"
+                echo "  $0 developer --install-dir /mnt/c/Users/yourname/.config/opencode --wsl"
                 echo ""
                 echo -e "  ${CYAN}# Install to custom location${NC}"
                 echo "  $0 essential --install-dir ~/my-agents"
@@ -1512,6 +1541,12 @@ main() {
         if [ "$new_count" -gt "$original_count" ]; then
             local added=$((new_count - original_count))
             print_info "Added $added dependencies"
+        fi
+
+        # Add platform compatibility context if WSL mode
+        if [ "$WSL_MODE" = true ]; then
+            SELECTED_COMPONENTS+=("context:platform-compatibility")
+            print_info "WSL mode: added platform compatibility context"
         fi
 
         show_installation_preview
